@@ -1,7 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
-import connectDB from "./db/connection.js";
-
+import { connectDB } from "./db/connection.js";
 dotenv.config();
 //create an instance of express server object:
 const app = express();
@@ -11,5 +10,6 @@ app.get("/", function (req, res) {
 });
 app.listen(PORT, function () {
   console.log(`Server running at http://localhost:${PORT}/`);
+  //call the connectDB function to connect to MongoDB
   connectDB();
 });
