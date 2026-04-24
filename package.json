@@ -30,12 +30,8 @@
     "express": "^5.2.1",
     "http-status": "^2.1.0",
     "lodash": "^4.18.1",
-<<<<<<< HEAD
-    "mongoose": "^9.5.0"
-=======
     "mongodb": "^7.2.0",
     "mongoose": "^9.4.1"
->>>>>>> 1d397579dca79b4a485f76c8b6c294902f46c314
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
