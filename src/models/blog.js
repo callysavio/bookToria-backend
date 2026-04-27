@@ -13,23 +13,29 @@ const blogSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    status: {
+      type: String,
+      enum: ["draft", "published"],
+      default: "draft",
+    },
+    category: {
+      type: String,
+      enum: ["technology", "lifestyle", "travel", "food", "education"],
+      required: true,
+    },
+    tags: {
+      type: [String],
+      default: [],
+    },
     author: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
     },
-    tags: [
-      {
-        type: String,
-        trim: true,
-      },
-    ],
-    published: {
-      type: Boolean,
-      default: false,
-    },
   },
-  { timestamps: true },
+  {
+    timestamps: true,
+  },
 );
 
 // Create the Blog model
