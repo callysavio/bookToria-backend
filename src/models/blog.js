@@ -30,7 +30,7 @@ const blogSchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
-      default: "general",
+      enum: ["general", "food", "travel", "technology", "lifestyle"],
     },
     tags: {
       type: [String],
@@ -43,7 +43,7 @@ const blogSchema = new mongoose.Schema(
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      required: true,
+      // required: true,
     },
   },
   { timestamps: true },
