@@ -9,6 +9,7 @@ export const register = async (req, res) => {
     let user;
     //3. Check if the user already exists in the database
     const existingUser = await User.findOne({ email });
+    const existingUsername = await User.findOne({ username });
     if (existingUser) {
       return res.status(httpStatus.CONFLICT).json({
         statusCode: httpStatus.CONFLICT,
@@ -16,6 +17,14 @@ export const register = async (req, res) => {
         message: "User already exists with this email",
       });
     }
+    if (existingUsername) {
+      return res.status(httpStatus.CONFLICT).json({
+        statusCode: httpStatus.CONFLICT,
+        success: false,
+        message: "User already exists with this username",
+      });
+    }
+    
     //4. Create a new user
     user = await User.create({ username, email, password, role });
     //5. Return a success response with the created user data
