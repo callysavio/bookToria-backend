@@ -22,3 +22,5 @@ export const fetchBlogs = async (req, res) => {
     });
   }
 };
+
+export default fetchBlogs;

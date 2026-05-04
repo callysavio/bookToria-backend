@@ -3,22 +3,15 @@ import Blog from "../../models/blog.js";
 
 const allowedCategories = ["general", "food", "travel", "technology", "lifestyle"];
 
-// controller for creating a blog post
-export const create = async (req, res) => {
+const createHandler = async (req, res) => {
   try {
-    const {
-      title,
-      slug,
-      content,
-      image,
-      category,
-      tags,
-      isPublished,
-      userId,
-    } = req.body;
+    const { title, slug, content, image, category, tags, isPublished, userId } =
+      req.body;
 
-    const normalizedSlug = typeof slug === "string" ? slug.trim().toLowerCase() : "";
-    const normalizedUserId = typeof userId === "string" ? userId.trim() : userId;
+    const normalizedSlug =
+      typeof slug === "string" ? slug.trim().toLowerCase() : "";
+    const normalizedUserId =
+      typeof userId === "string" ? userId.trim() : userId;
 
     if (!title || !normalizedSlug || !content || !category) {
       return res.status(httpStatus.BAD_REQUEST).json({
@@ -28,7 +21,11 @@ export const create = async (req, res) => {
       });
     }
 
-    if (normalizedUserId && !Blog.db.base.Types.ObjectId.isValid(normalizedUserId)) {
+    // Validate userId if provided
+    if (
+      normalizedUserId &&
+      !Blog.db.base.Types.ObjectId.isValid(normalizedUserId)
+    ) {
       return res.status(httpStatus.BAD_REQUEST).json({
         statusCode: httpStatus.BAD_REQUEST,
         success: false,
@@ -83,7 +80,7 @@ export const create = async (req, res) => {
       },
     });
   } catch (error) {
-    if (error.name === "ValidationError") {
+    if (error?.name === "ValidationError") {
       return res.status(httpStatus.BAD_REQUEST).json({
         statusCode: httpStatus.BAD_REQUEST,
         success: false,
@@ -92,7 +89,7 @@ export const create = async (req, res) => {
       });
     }
 
-    if (error.code === 11000) {
+    if (error?.code === 11000) {
       return res.status(httpStatus.CONFLICT).json({
         statusCode: httpStatus.CONFLICT,
         success: false,
@@ -108,3 +105,6 @@ export const create = async (req, res) => {
     });
   }
 };
+
+export const create = createHandler;
+export const createBlog = createHandler;
