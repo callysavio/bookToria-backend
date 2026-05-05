@@ -21,7 +21,3 @@ const postSchema = new mongoose.Schema(
   },
   { timestamps: true },
 );
-
-//Create a Blog model using the schema
-const Blog = mongoose.model("Blog", blogSchema);
-export default Blog;
