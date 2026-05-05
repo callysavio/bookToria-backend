@@ -2,7 +2,6 @@ import express from "express";
 import dotenv from "dotenv";
 import { connectDB } from "./db/connection.js";
 import userRoutes from "./routes/users.js";
-import blogRoutes from "./routes/blog.js";
 dotenv.config();
 //create an instance of express server object:
 const app = express();
@@ -11,8 +10,10 @@ const PORT = process.env.PORT;
 
 //use the user routes for handling user-related requests
 app.use("/users", userRoutes);
-app.use("/blogs", blogRoutes);
 
+//use the blog routes for handling blog-related requests
+app.use("/blogs", blogRoutes);
+const PORT = process.env.PORT;
 app.get("/", function (req, res) {
   res.send("Welcome to Book-toria backend!");
 });
