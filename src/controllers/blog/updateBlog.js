@@ -41,5 +41,3 @@ export const updateBlog = async (req, res) => {
         });
     }
 };
-
-export { updateBlog };
