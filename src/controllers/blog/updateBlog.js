@@ -1,4 +1,4 @@
-import Blog from "../../models/blog";
+import Blog from "../../models/blog.js";
 import httpStatus from "http-status";
 
 // Controller for updating a blog post
@@ -8,8 +8,8 @@ export const updateBlog = async (req, res) => {
         const { title, content, status, category, tags } = req.body;
 
         // Find the blog post by ID
-        const blog = await Blog.findById(id);
-        if (!blog) {
+        const updatedBlog = await Blog.findByIdAndUpdate(id, req.body, { new: true });
+        if (!updatedBlog) {
             return res.status(httpStatus.NOT_FOUND).json({
                 statusCode: httpStatus.NOT_FOUND,
                 success: false,
@@ -18,20 +18,20 @@ export const updateBlog = async (req, res) => {
         }
 
         // Update the blog post
-        blog.title = title;
-        blog.content = content;
-        blog.status = status;
-        blog.category = category;
-        blog.tags = tags;
+        updatedBlog.title = title;
+        updatedBlog.content = content;
+        updatedBlog.status = status;
+        updatedBlog.category = category;
+        updatedBlog.tags = tags;
 
         // Save the updated blog post
-        const updatedBlog = await blog.save();
+        const savedBlog = await updatedBlog.save();
 
         res.status(httpStatus.OK).json({
             statusCode: httpStatus.OK,
             success: true,
             message: "Blog post updated successfully",
-            data: updatedBlog
+            data: savedBlog
         });
     } catch (error) {
         res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
@@ -42,4 +42,4 @@ export const updateBlog = async (req, res) => {
     }
 };
 
-export default updateBlog;
+export { updateBlog };
