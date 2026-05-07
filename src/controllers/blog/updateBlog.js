@@ -1,14 +1,19 @@
-import Blog from "../../models/blog.js";
+import Blog from "../../models/blog";
 import httpStatus from "http-status";
 
 // Controller for updating a blog post
 export const updateBlog = async (req, res) => {
-    try{
+    try {
         const { id } = req.params;
-        const { title, content, status, category, tags } = req.body;
+        const { title, content, category, tags } = req.body;
 
-        // Find the blog post by ID
-        const updatedBlog = await Blog.findByIdAndUpdate(id, req.body, { new: true });
+        // Use findByIdAndUpdate with { new: true } to update and get the doc in one go
+        const updatedBlog = await Blog.findByIdAndUpdate(
+            id, 
+            {title: title, content: content, category: category, tags: tags}, 
+            { new: true} // runValidators ensures the update matches your schema
+        );
+
         if (!updatedBlog) {
             return res.status(httpStatus.NOT_FOUND).json({
                 statusCode: httpStatus.NOT_FOUND,
@@ -17,27 +22,18 @@ export const updateBlog = async (req, res) => {
             });
         }
 
-        // Update the blog post
-        updatedBlog.title = title;
-        updatedBlog.content = content;
-        updatedBlog.status = status;
-        updatedBlog.category = category;
-        updatedBlog.tags = tags;
-
-        // Save the updated blog post
-        const savedBlog = await updatedBlog.save();
-
         res.status(httpStatus.OK).json({
             statusCode: httpStatus.OK,
             success: true,
             message: "Blog post updated successfully",
-            data: savedBlog
+            data: updatedBlog
         });
     } catch (error) {
         res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
             statusCode: httpStatus.INTERNAL_SERVER_ERROR,
             success: false,
-            message: "An error occurred while updating the blog post",
+            message: error.message || "An error occurred while updating the blog post",
         });
     }
 };
+

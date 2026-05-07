@@ -7,5 +7,5 @@ const router = express.Router();
 router.post("/create", createBlog);
 router.get("/fetch", fetchBlogs);
 router.get("/details/:id", fetchBlogById);
-router.put("/update/:id", updateBlog);
+router.put("/updateBlog/:id", updateBlog);
 export default router;
