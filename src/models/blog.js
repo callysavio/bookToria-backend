@@ -21,3 +21,7 @@ const postSchema = new mongoose.Schema(
   },
   { timestamps: true },
 );
+
+const Blog = mongoose.model("Post", postSchema);
+
+export default Blog;
