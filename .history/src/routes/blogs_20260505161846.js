@@ -1,7 +1,7 @@
 import express from "express";
 import { createBlog } from "../controllers/blog/create.js";
 import fetchBlogs from "../controllers/blog/fetchBlogs.js";
-import { updateBlog } from "../controllers/blog/updateBlog.js";
+import updateBlog from "../controllers/blog/updateBlog.js";
 import fetchBlogById from "../controllers/blog/fetchBlogById.js";
 const router = express.Router();
 router.post("/create", createBlog);
