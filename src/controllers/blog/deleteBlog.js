@@ -32,5 +32,3 @@ export const deleteBlog = async (req, res) => {
     });
   }
 };
-
-export { deleteBlog };
