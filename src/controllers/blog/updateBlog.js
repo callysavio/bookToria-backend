@@ -1,4 +1,4 @@
-import Blog from "../../models/blog";
+import Blog from "../../models/blog.js";
 import httpStatus from "http-status";
 
 // Controller for updating a blog post
