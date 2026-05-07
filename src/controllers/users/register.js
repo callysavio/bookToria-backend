@@ -1,13 +1,29 @@
 import httpStatus from "http-status";
 import User from "../../models/user.js";
+import { registerValidationSchema } from "../../validators/authVaildator.js";
 //controller for user registration
 export const register = async (req, res) => {
   try {
     //1. Get user input
     const { username, email, password, role } = req.body;
-    //2.Define the user  variable to store the user data
+    //2. Validate user input
+    const { error } = registerValidationSchema.validate({
+      username,
+      email,
+      password,
+      role,
+    });
+    if (error) {
+      return res.status(httpStatus.BAD_REQUEST).json({
+        statusCode: httpStatus.BAD_REQUEST,
+        success: false,
+        message: "Invalid user input",
+        error: error.details.map((detail) => detail.message),
+      });
+    }
+    //3.Define the user  variable to store the user data
     let user;
-    //3. Check if the user already exists in the database
+    //4. Check if the user already exists in the database
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(httpStatus.CONFLICT).json({
@@ -16,9 +32,9 @@ export const register = async (req, res) => {
         message: "User already exists with this email",
       });
     }
-    //4. Create a new user
+    //5. Create a new user
     user = await User.create({ username, email, password, role });
-    //5. Return a success response with the created user data
+    //6. Return a success response with the created user data
     return res.status(httpStatus.CREATED).json({
       statusCode: httpStatus.CREATED,
       success: true,
@@ -31,6 +47,7 @@ export const register = async (req, res) => {
         role: user.role,
       },
     });
+    //7. Handle errors
   } catch (error) {
     return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
       statusCode: httpStatus.INTERNAL_SERVER_ERROR,

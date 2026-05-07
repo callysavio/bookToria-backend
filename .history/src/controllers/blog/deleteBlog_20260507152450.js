@@ -1,33 +1,33 @@
 import Blog from "../../models/blog.js";
 import httpStatus from "http-status";
-//controller for deleting a blog
-export const deleteBlog = async (req, res) => {
+
+const deleteBlog = async (req, res) => {
   try {
-    //1. get blog id from the request parameter
+    // 1. Get blog ID from the request parameters
     const { id } = req.params;
-    //2. check if blog exists
-    let blog = await Blog.findById(id);
-    if (!blog) {
+    // 2. Fetch the blog post from the database using the ID
+    const existingBlog = await Blog.findById(id);
+    // 3. Check if the blog post was found
+    if (!existingBlog) {
       return res.status(httpStatus.NOT_FOUND).json({
-        status: httpStatus.NOT_FOUND,
+        statusCode: httpStatus.NOT_FOUND,
         success: false,
-        message: "Blog not found",
+        message: `Blog post with ID ${id} not found.`,
       });
     }
-    //3. delete the blog
+    // 4. Delete the blog post
     await Blog.findByIdAndDelete(id);
-    //4. return success response
+    // 5. Return a success response
     return res.status(httpStatus.OK).json({
       statusCode: httpStatus.OK,
       success: true,
-      message: "Blog deleted successfully",
+      message: "Blog post deleted successfully",
     });
-    //5. handle errors
   } catch (error) {
     return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
       statusCode: httpStatus.INTERNAL_SERVER_ERROR,
       success: false,
-      message: "Error deleting blog",
+      message: "An error occurred while deleting the blog post",
       error: error.message,
     });
   }
