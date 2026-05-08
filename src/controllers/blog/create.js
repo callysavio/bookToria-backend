@@ -1,10 +1,21 @@
 import Blog from "../../models/blog.js";
 import httpStatus from "http-status";
+import { createBlogValidationSchema } from "../../validators/blogValidator.js";
 
 // Controller for creating a new blog post
 export const createBlog = async (req, res) => {
   try {
-    // 1. Get blog data from the request body
+    // 1. Get blog data from the request body and validate it
+    const { error } = createBlogValidationSchema.validate(req.body);
+    if (error) {
+      return res.status(httpStatus.BAD_REQUEST).json({
+        statusCode: httpStatus.BAD_REQUEST,
+        success: false,
+        message: "Invalid blog post data",
+        error: error.details.map((detail) => detail.message),
+      });
+    }
+
     const { title, content, category, tags } = req.body;
     // const author = req.user.id; // Assuming user is authenticated and user ID is available in req.user
     // 2. Define the blog variable to store the created blog post

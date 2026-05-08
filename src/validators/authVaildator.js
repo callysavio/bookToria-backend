@@ -7,3 +7,5 @@ const registerValidationSchema = Joi.object({
   role: Joi.string().valid("user", "admin").default("user"),
 });
 export { registerValidationSchema };
+
+
