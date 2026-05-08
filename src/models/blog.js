@@ -1,12 +1,8 @@
 import mongoose from "mongoose";
 
 // Define the User schema
-const postSchema = new mongoose.Schema(
+const blogSchema = new mongoose.Schema(
   {
-    id: {
-      type: String,
-      required: true,
-    },
     title: {
       type: String,
       required: true,
@@ -22,6 +18,6 @@ const postSchema = new mongoose.Schema(
   { timestamps: true },
 );
 
-const Blog = mongoose.model("Post", postSchema);
+const Blog = mongoose.model("Blog", blogSchema);
 
 export default Blog;

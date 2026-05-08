@@ -14,6 +14,7 @@ export const deleteBlog = async (req, res) => {
         message: "Blog post not found",
       });
     }
+
     // 3. Delete the blog post
     await Blog.findByIdAndDelete(id);
     // 4. Return a success response
