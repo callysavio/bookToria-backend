@@ -1,5 +1,6 @@
 import Blog from "../../models/blog.js";
 import httpStatus from "http-status";
+import { updateBlogValidationSchema } from "../../validators/authValidator.js";
 
 // Controller for updating blog details
 const updateBlog = async (req, res) => {

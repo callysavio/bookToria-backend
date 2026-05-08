@@ -1,5 +1,6 @@
 import httpStatus from "http-status";
 import User from "../../models/user.js";
+import { registerValidationSchema } from "../../validators/authValidator.js";
 
 // controller for user registration
 export const register = async (req, res) => {
@@ -7,8 +8,21 @@ export const register = async (req, res) => {
     // 1. Get user input
     const { username, email, password, role } = req.body;
 
-    // 2. Define the user variable to store the user data
-    let user;
+    // 2. Validate input
+    const { error } = registerValidationSchema.validate({
+      username,
+      email,
+      password,
+      role,
+    });
+    if (error) {
+      return res.status(httpStatus.BAD_REQUEST).json({
+        statusCode: httpStatus.BAD_REQUEST,
+        success: false,
+        message: "Invalid input",
+        error: error.details.map((detail) => detail.message),
+      });
+    }
 
     // 3. Check if the user already exists in the database
     const existingUser = await User.findOne({ email });
@@ -21,7 +35,7 @@ export const register = async (req, res) => {
     }
 
     // 4. Create a new user
-    user = await User.create({ username, email, password, role });
+    const user = await User.create({ username, email, password, role });
 
     // 5. Return a success response with the created user data
     return res.status(httpStatus.CREATED).json({

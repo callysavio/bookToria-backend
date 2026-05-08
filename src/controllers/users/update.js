@@ -1,5 +1,6 @@
 import User from "../../models/user.js";
 import httpStatus from "http-status";
+import { updateUserValidationSchema } from "../../validators/authValidator.js";
 
 // Controller for updating user details
 const updateUser = async (req, res) => {

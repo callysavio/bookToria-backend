@@ -1,5 +1,6 @@
 import httpStatus from "http-status";
 import Blog from "../../models/blog.js";
+import { blogValidationSchema } from "../../validators/authValidator.js";
 
 const allowedCategories = ["general", "food", "travel", "technology", "lifestyle"];
 
