@@ -9,7 +9,7 @@ export const validate = (schema) => {
 
       return res.status(400).json({
         success: false,
-        errors: errors,
+        errors: errors[0],
       });
     }
 
