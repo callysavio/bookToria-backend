@@ -5,7 +5,8 @@ export const register = async (req, res) => {
   try {
     //1. Get user input
     const { username, email, password, role } = req.body;
-    //2.Define the user  variable to store the user data
+
+    //2. Define the user  variable to store the user data
     let user;
     //3. Check if the user already exists in the database
     const existingUser = await User.findOne({ email });
@@ -31,6 +32,7 @@ export const register = async (req, res) => {
         role: user.role,
       },
     });
+    //6. Handle errors
   } catch (error) {
     return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
       statusCode: httpStatus.INTERNAL_SERVER_ERROR,
