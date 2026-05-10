@@ -7,5 +7,5 @@ const router = express.Router();
 router.post("/create", createBlog);
 router.get("/fetch", fetchBlogs);
 router.get("/details/:id", fetchBlogById);
-router.delete("/delete/:id", deleteBlog);
+
 export default router;
