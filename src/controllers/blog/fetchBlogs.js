@@ -4,10 +4,10 @@ import httpStatus from "http-status";
 // Controller for fetching all blog posts
 const fetchBlogs = async (req, res) => {
   try {
-    // 1. Fetch all blog posts from the database
+    // 1. Fetch all blog posts from the database in descending order of creation date
     const blogs = await Blog.find().sort({
       createdAt: -1,
-    }); // Fetch only published blogs and sort by creation date
+    }); 
     // 2. Check if any blogs were found
     if (blogs.length === 0 || !blogs) {
       return res.status(httpStatus.NOT_FOUND).json({
