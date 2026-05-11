@@ -1,17 +1,33 @@
 import Blog from "../../models/blog.js";
 import httpStatus from "http-status";
+import { updateBlogValidationSchema } from "../../validators/blogValidator.js";
 // Controller for updating blog details
 const updateBlog = async (req, res) => {
   try {
     // 1. Get blog ID from the request parameters
     const { id } = req.params;
-    // 2. Get the data to be updated blog data from the request body
-    const { title, content, category,
-      tags, author } = req.body;
-    // 3. Find the blog by ID and update the details
+    // 2. Validate the update data
+    const { error } = updateBlogValidationSchema.validate(req.body);
+    if (error) {
+      return res.status(httpStatus.BAD_REQUEST).json({
+        statusCode: httpStatus.BAD_REQUEST,
+        success: false,
+        message: "Invalid blog post data",
+        error: error.details.map((detail) => detail.message),
+      });
+    }
+    // 3. Get the data to be updated blog data from the request body
+    const { title, content, category, tags, author } = req.body;
+    // 4. Find the blog by ID and update the details
     const updatedBlog = await Blog.findByIdAndUpdate(
       id,
-      { title: title, content: content, category: category, tags: tags, author: author },
+      {
+        title: title,
+        content: content,
+        category: category,
+        tags: tags,
+        author: author,
+      },
       { new: true },
     );
     if (!updatedBlog) {
