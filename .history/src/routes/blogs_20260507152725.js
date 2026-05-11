@@ -2,13 +2,10 @@ import express from "express";
 import { createBlog } from "../controllers/blog/create.js";
 import fetchBlogs from "../controllers/blog/fetchBlogs.js";
 import fetchBlogById from "../controllers/blog/fetchBlogById.js";
-import { updateBlog } from "../controllers/blog/updateBlog.js";
 import { deleteBlog } from "../controllers/blog/deleteBlog.js";
-
 const router = express.Router();
 router.post("/create", createBlog);
 router.get("/fetch", fetchBlogs);
 router.get("/details/:id", fetchBlogById);
-router.put("/updateBlog/:id", updateBlog);
-router.delete("/deleteBlog/:id", deleteBlog);
+
 export default router;
