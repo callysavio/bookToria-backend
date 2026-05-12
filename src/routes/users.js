@@ -1,6 +1,8 @@
 import express from "express";
 const router = express.Router();
 
+import authMiddleware from "../middlewares/auth.js";
+import authorizeRoles from "../middlewares/authorizeRole.js";
 import { registerValidationSchema } from "../validators/auth/register.js";
 import { validate } from "../middlewares/validate.js";
 import { register } from "../controllers/auth/register.js";
@@ -13,6 +15,18 @@ import { deleteValidationSchema } from "../validators/auth/delete.js";
 // Define the route for user registration
 router.post("/register", validate(registerValidationSchema), register);
 router.post("/login", validate(loginValidationSchema), login);
-router.put("/update/:id", validate(updateValidationSchema), updateUser);
-router.delete("/delete/:id", validate(deleteValidationSchema), deleteUser);
+router.put(
+  "/update/:id",
+  validate(updateValidationSchema),
+  authMiddleware,
+  authorizeRoles("admin", "user"),
+  updateUser,
+);
+router.delete(
+  "/delete/:id",
+  validate(deleteValidationSchema),
+  authMiddleware,
+  authorizeRoles("admin"),
+  deleteUser,
+);
 export default router;
