@@ -9,11 +9,7 @@ import { updateUser } from "../controllers/users/update.js";
 import { deleteUser } from "../controllers/users/delete.js";
 // Define the route for user registration
 router.post("/register", validate(registerValidationSchema), register);
-<<<<<<< HEAD
-// Define the route for user update
-=======
 router.post("/login", login);
->>>>>>> 8988839abf77ff395c9994768911281cf06ff53c
 router.put("/update/:id", updateUser);
 // Define the route for user deletion
 router.delete("/delete/:id", deleteUser);
