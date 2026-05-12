@@ -1,6 +1,6 @@
 import Joi from "joi";
 
-export const registerValidationSchema = Joi.object({
+const registerValidationSchema = Joi.object({
   username: Joi.string().min(6).max(20).required().messages({
     "string.base": "Username must be a text",
     "string.empty": "Username cannot be empty",
@@ -28,3 +28,5 @@ export const registerValidationSchema = Joi.object({
     "any.only": "Role must be either user or admin",
   }),
 });
+
+export { registerValidationSchema };

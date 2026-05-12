@@ -1,6 +1,5 @@
 import express from "express";
 import { createBlog } from "../controllers/blog/create.js";
-import { updateBlog } from "../controllers/blog/updateBlog.js";
 import fetchBlogs from "../controllers/blog/fetchBlogs.js";
 import fetchBlogById from "../controllers/blog/fetchBlogById.js";
 import { deleteBlog } from "../controllers/blog/deleteBlog.js";
