@@ -5,7 +5,7 @@ const createBlogValidationSchema = Joi.object({
   title: Joi.string().min(5).max(100).required(),
   content: Joi.string().min(20).required(),
   category: Joi.string()
-    .valid("Technology", "Lifestyle", "Travel", "Food", "Education")
+    .valid("technology", "lifestyle", "travel", "food", "education")
     .required(),
   tags: Joi.array().items(Joi.string()).max(10),
 });
@@ -14,11 +14,11 @@ const updateBlogValidationSchema = Joi.object({
   title: Joi.string().min(5).max(100),
   content: Joi.string().min(20),
   category: Joi.string().valid(
-    "Technology",
-    "Lifestyle",
-    "Travel",
-    "Food",
-    "Education",
+    "technology",
+    "lifestyle",
+    "travel",
+    "food",
+    "education",
   ),
   tags: Joi.array().items(Joi.string()).max(10),
 });
