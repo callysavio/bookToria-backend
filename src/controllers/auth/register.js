@@ -1,5 +1,6 @@
 import httpStatus from "http-status";
 import User from "../../models/user.js";
+import bcrypt from "bcryptjs";
 //controller for user registration
 export const register = async (req, res) => {
   try {
@@ -18,6 +19,7 @@ export const register = async (req, res) => {
         message: "User already exists with this email",
       });
     }
+<<<<<<< HEAD:src/controllers/users/register.js
     if (existingUsername) {
       return res.status(httpStatus.CONFLICT).json({
         statusCode: httpStatus.CONFLICT,
@@ -26,8 +28,20 @@ export const register = async (req, res) => {
       });
     }
     
+=======
+
+    // Hash the password before saving to the database
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+>>>>>>> 8988839abf77ff395c9994768911281cf06ff53c:src/controllers/auth/register.js
     //4. Create a new user
-    user = await User.create({ username, email, password, role });
+    user = await User.create({
+      username,
+      email,
+      password: hashedPassword,
+      role,
+    });
     //5. Return a success response with the created user data
     return res.status(httpStatus.CREATED).json({
       statusCode: httpStatus.CREATED,
@@ -39,6 +53,7 @@ export const register = async (req, res) => {
         username: user.username,
         email: user.email,
         role: user.role,
+        password: user.password,
       },
     });
     //6. Handle errors
