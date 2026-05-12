@@ -19,22 +19,11 @@ export const register = async (req, res) => {
         message: "User already exists with this email",
       });
     }
-<<<<<<< HEAD:src/controllers/users/register.js
-    if (existingUsername) {
-      return res.status(httpStatus.CONFLICT).json({
-        statusCode: httpStatus.CONFLICT,
-        success: false,
-        message: "User already exists with this username",
-      });
-    }
-    
-=======
 
     // Hash the password before saving to the database
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
->>>>>>> 8988839abf77ff395c9994768911281cf06ff53c:src/controllers/auth/register.js
     //4. Create a new user
     user = await User.create({
       username,
