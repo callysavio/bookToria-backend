@@ -28,7 +28,15 @@ const blogSchema = new mongoose.Schema(
         tags: {
             type: [String],
             default: [],
-        }
+        },
+        blogImage: {
+            type: String,
+            default: "",
+        },
+        blogImagePublicId: {
+            type: String,
+            default: "",
+        },
     },
     { timestamps: true },
 );
