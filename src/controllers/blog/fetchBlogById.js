@@ -14,7 +14,7 @@ const fetchBlogById = async (req, res) => {
       return res.status(httpStatus.NOT_FOUND).json({
         statusCode: httpStatus.NOT_FOUND,
         success: false,
-        message: `Blog post with ID ${id} not found.`,
+        message: "Blog not found",
       });
     }
     // 4. Return the fetched blog post

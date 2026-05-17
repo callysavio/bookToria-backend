@@ -5,11 +5,18 @@ const updateBlog = async (req, res) => {
     try {
         const { id } = req.params;
 
-        const { title, status, category } = req.body;
+        const { title, status, category, tags, content, blogImage } = req.body;
 
         const updatedBlog = await Blog.findByIdAndUpdate(
             id,
-            { title: title, status: status, category: category },
+            {
+                title,
+                status,
+                category,
+                tags,
+                content,
+                blogImage
+            },
             { new: true }
         );
 

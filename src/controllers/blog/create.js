@@ -21,13 +21,17 @@ export const createBlog = async (req, res) => {
           ? tags
           : [];
 
+    const blogImageUrl = req.file?.secure_url || req.file?.url || req.file?.path || "";
+    const blogImagePublicId =
+      req.file?.public_id || req.file?.filename || req.file?.file_id || "";
+
     const blog = await Blog.create({
       title,
       content,
       category,
       tags: tagArray,
-      blogImage: req.file?.path || "",
-      blogImagePublicId: req.file?.filename || "",
+      blogImage: blogImageUrl,
+      blogImagePublicId,
     });
 
     return res.status(httpStatus.CREATED).json({

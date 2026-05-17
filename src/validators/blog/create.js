@@ -18,12 +18,12 @@ const createBlogValidationSchema = Joi.object({
         "any.only": "Status must be either draft or published",
     }),
     category: Joi.string()
-        .valid("technology", "lifestyle", "travel", "food", "education")
+        .valid("technology", "lifestyle", "travel", "food", "education", "life")
         .required()
         .messages({
             "string.base": "Category must be a text",
             "string.empty": "Category cannot be empty",
-            "any.only": "Category must be one of technology, lifestyle, travel, food, or education",
+            "any.only": "Category must be one of technology, lifestyle, travel, life, food, or education",
             "any.required": "Category is required",
         }),
     tags: Joi.array().items(Joi.string()).optional().messages({

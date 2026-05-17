@@ -21,7 +21,7 @@ router.put(
 router.delete(
   "/delete/:id",
   authMiddleware,
-  authorizeRoles("admin"),
+  authorizeRoles("admin", "user"),
   deleteUser,
 );
 export default router;

@@ -27,7 +27,7 @@ const blogSchema = new mongoose.Schema(
     },
     category: {
       type: String,
-      enum: ["technology", "lifestyle", "travel", "food", "education"],
+      enum: ["technology", "lifestyle", "travel", "food", "education", "life"],
       required: true,
     },
     tags: {
