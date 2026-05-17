@@ -42,7 +42,6 @@ export const register = async (req, res) => {
         username: user.username,
         email: user.email,
         role: user.role,
-        password: user.password,
       },
     });
     //6. Handle errors
