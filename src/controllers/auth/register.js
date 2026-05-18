@@ -29,6 +29,10 @@ export const register = async (req, res) => {
       email,
       password: hashedPassword,
       role,
+      profilePicture:
+        req.file?.path ||
+        "https://cdn-icons-png.flaticon.com/128/2202/2202112.png",
+      profilePicturePublicId: req.file?.filename || "",
     });
     //5. Return a success response with the created user data
     return res.status(httpStatus.CREATED).json({
@@ -41,7 +45,6 @@ export const register = async (req, res) => {
         username: user.username,
         email: user.email,
         role: user.role,
-        password: user.password,
       },
     });
     //6. Handle errors

@@ -6,8 +6,15 @@ import fetchBlogs from "../controllers/blog/fetchBlogs.js";
 import fetchBlogById from "../controllers/blog/fetchBlogById.js";
 import { updateBlog } from "../controllers/blog/updateBlog.js";
 import { deleteBlog } from "../controllers/blog/deleteBlog.js";
+import upload from "../middlewares/multer.js";
 const router = express.Router();
-router.post("/create", authMiddleware, authorizeRoles("admin"), createBlog);
+router.post(
+  "/create",
+  authMiddleware,
+  authorizeRoles("admin"),
+  upload.single("blogImage"),
+  createBlog,
+);
 router.get("/fetch", fetchBlogs);
 router.get("/details/:id", fetchBlogById);
 router.put("/update/:id", updateBlog);
