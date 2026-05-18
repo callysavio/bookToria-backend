@@ -14,7 +14,7 @@ const registerValidationSchema = Joi.object({
     "string.empty": "Email cannot be empty",
     "string.email": "Please provide a valid email address",
     "any.required": "Email is required",
-  }), 
+  }),
 
   password: Joi.string().min(6).max(100).required().messages({
     "string.base": "Password must be a text",

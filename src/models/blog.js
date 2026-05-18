@@ -1,38 +1,49 @@
 import mongoose from "mongoose";
 
-// Define the User schema
+// Define the Blog schema
 const blogSchema = new mongoose.Schema(
-    {
-        title: {
-            type: String,
-            required: true,
-        },
-        author: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User",
-            // required: true,
-        },
-        content: {
-            type: String,
-            ref: "User",
-            required: true,
-        },
-        status: {
-            type: String,
-        },
-        categories: {
-            type: String,
-            enum: ["Technology", "Lifestyle", "Travel", "Food", "Education"],
-            required: true,
-        },
-        tags: {
-            type: [String],
-            default: [],
-        }
+  {
+    blogImage: {
+      type: String,
+      default: "",
     },
-    { timestamps: true },
+
+    blogImagePublicId: {
+      type: String,
+      default: "",
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    content: {
+      type: String,
+      required: true,
+    },
+    status: {
+      type: String,
+      enum: ["draft", "published"],
+      default: "published",
+    },
+    category: {
+      type: String,
+      enum: ["technology", "lifestyle", "travel", "food", "education"],
+      required: true,
+    },
+    tags: {
+      type: [String],
+      default: [],
+    },
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      //   required: true,
+    },
+  },
+  {
+    timestamps: true,
+  },
 );
-
+// Create the Blog model
 const Blog = mongoose.model("Blog", blogSchema);
-
 export default Blog;
