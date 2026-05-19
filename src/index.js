@@ -3,9 +3,9 @@ import dotenv from "dotenv";
 import { connectDB } from "./db/connection.js";
 import userRoutes from "./routes/users.js";
 import blogRoutes from "./routes/blogs.js"
-dotenv.config();
 //create an instance of express server object:
 const app = express();
+dotenv.config();
 app.use(express.json());
 const PORT = process.env.PORT;
 
