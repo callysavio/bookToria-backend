@@ -1,20 +1,39 @@
 import httpStatus from "http-status";
+import mongoose from "mongoose";
 import Blog from "../../models/blog.js";
-import { blogValidationSchema } from "../../validators/authValidator.js";
 
 const allowedCategories = ["general", "food", "travel", "technology", "lifestyle"];
 
-const createHandler = async (req, res) => {
+const normalizeTags = (tags) => {
+  if (typeof tags === "string") {
+    return tags
+      .split(",")
+      .map((tag) => tag.trim())
+      .filter(Boolean);
+  }
+
+  if (Array.isArray(tags)) {
+    return tags.map((tag) => String(tag).trim()).filter(Boolean);
+  }
+
+  return [];
+};
+
+const createBlogHandler = async (req, res) => {
   try {
     const { title, slug, content, image, category, tags, isPublished, userId } =
       req.body;
 
+    const normalizedTitle = typeof title === "string" ? title.trim() : "";
     const normalizedSlug =
       typeof slug === "string" ? slug.trim().toLowerCase() : "";
+    const normalizedContent = typeof content === "string" ? content.trim() : "";
+    const normalizedCategory =
+      typeof category === "string" ? category.trim().toLowerCase() : "";
     const normalizedUserId =
       typeof userId === "string" ? userId.trim() : userId;
 
-    if (!title || !normalizedSlug || !content || !category) {
+    if (!normalizedTitle || !normalizedSlug || !normalizedContent || !normalizedCategory) {
       return res.status(httpStatus.BAD_REQUEST).json({
         statusCode: httpStatus.BAD_REQUEST,
         success: false,
@@ -22,23 +41,19 @@ const createHandler = async (req, res) => {
       });
     }
 
-    // Validate userId if provided
-    if (
-      normalizedUserId &&
-      !Blog.db.base.Types.ObjectId.isValid(normalizedUserId)
-    ) {
-      return res.status(httpStatus.BAD_REQUEST).json({
-        statusCode: httpStatus.BAD_REQUEST,
-        success: false,
-        message: "userId must be a valid MongoDB ObjectId",
-      });
-    }
-
-    if (!allowedCategories.includes(category)) {
+    if (!allowedCategories.includes(normalizedCategory)) {
       return res.status(httpStatus.BAD_REQUEST).json({
         statusCode: httpStatus.BAD_REQUEST,
         success: false,
         message: `category must be one of: ${allowedCategories.join(", ")}`,
+      });
+    }
+
+    if (normalizedUserId && !mongoose.Types.ObjectId.isValid(normalizedUserId)) {
+      return res.status(httpStatus.BAD_REQUEST).json({
+        statusCode: httpStatus.BAD_REQUEST,
+        success: false,
+        message: "userId must be a valid MongoDB ObjectId",
       });
     }
 
@@ -52,13 +67,15 @@ const createHandler = async (req, res) => {
     }
 
     const blog = await Blog.create({
-      title,
+      title: normalizedTitle,
       slug: normalizedSlug,
-      content,
-      image,
-      category,
-      tags,
-      isPublished,
+      content: normalizedContent,
+      image: typeof image === "string" && image.trim() ? image.trim() : undefined,
+      category: normalizedCategory,
+      tags: normalizeTags(tags),
+      isPublished: typeof isPublished === "boolean" ? isPublished : true,
+      blogImage: req.file?.path || "",
+      blogImagePublicId: req.file?.filename || "",
       userId: normalizedUserId || undefined,
     });
 
@@ -72,6 +89,8 @@ const createHandler = async (req, res) => {
         slug: blog.slug,
         content: blog.content,
         image: blog.image,
+        blogImage: blog.blogImage,
+        blogImagePublicId: blog.blogImagePublicId,
         category: blog.category,
         tags: blog.tags,
         isPublished: blog.isPublished,
@@ -102,10 +121,14 @@ const createHandler = async (req, res) => {
       statusCode: httpStatus.INTERNAL_SERVER_ERROR,
       success: false,
       message: "An error occurred while creating the blog post",
-      error: error.message,
+      error: {
+        name: error?.name,
+        code: error?.code,
+        details: error?.errors ?? null,
+      },
     });
   }
 };
 
-export const create = createHandler;
-export const createBlog = createHandler;
+export const create = createBlogHandler;
+export const createBlog = createBlogHandler;

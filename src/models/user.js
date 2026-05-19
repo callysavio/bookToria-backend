@@ -7,6 +7,11 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "https://cdn-icons-png.flaticon.com/128/2202/2202112.png",
     },
+    profilePicturePublicId: {
+      type: String,
+      default: "",
+    },
+
     username: {
       type: String,
       required: true,
