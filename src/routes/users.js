@@ -13,6 +13,7 @@ import { loginValidationSchema } from "../validators/auth/login.js";
 import { updateValidationSchema } from "../validators/auth/update.js";
 import { deleteValidationSchema } from "../validators/auth/delete.js";
 import upload from "../middlewares/multer.js";
+import { apiLimiter } from "../middlewares/apiLimiter.js";
 // Define the route for user registration
 router.post(
   "/register",
@@ -20,7 +21,7 @@ router.post(
   validate(registerValidationSchema),
   register,
 );
-router.post("/login", validate(loginValidationSchema), login);
+router.post("/login", validate(loginValidationSchema), apiLimiter, login);
 router.put(
   "/update/:id",
   validate(updateValidationSchema),
