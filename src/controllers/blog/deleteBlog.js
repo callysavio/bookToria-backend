@@ -12,6 +12,11 @@ export const deleteBlog = async (req, res) => {
         message: "Blog not found",
       });
     }
+<<<<<<< HEAD
+=======
+
+    // 4. Delete the blog post
+>>>>>>> 51e7bc1234fdafef7afd954c7c6dd9aaf30d4721
     await Blog.findByIdAndDelete(id);
     return res.status(httpStatus.OK).json({
       statusCode: httpStatus.OK,

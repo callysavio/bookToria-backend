@@ -3,6 +3,15 @@ import mongoose from "mongoose";
 // Define the Blog schema
 const blogSchema = new mongoose.Schema(
   {
+    blogImage: {
+      type: String,
+      default: "",
+    },
+
+    blogImagePublicId: {
+      type: String,
+      default: "",
+    },
     title: {
       type: String,
       required: true,
