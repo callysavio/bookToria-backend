@@ -8,11 +8,17 @@ import { register } from "../controllers/auth/register.js";
 import { login } from "../controllers/auth/login.js";
 import { updateUser } from "../controllers/users/update.js";
 import { deleteUser } from "../controllers/users/delete.js";
+import upload from "../middlewares/multer.js";
 
 const router = express.Router();
 
 // Define the route for user registration
-router.post("/register", validate(registerValidationSchema), register);
+router.post(
+  "/register",
+  upload.single("profilePicture"),
+  validate(registerValidationSchema),
+  register,
+);
 router.post("/login", login);
 router.put(
   "/update/:id",

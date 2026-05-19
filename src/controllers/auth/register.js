@@ -19,6 +19,15 @@ export const register = async (req, res) => {
       });
     }
 
+    const existingUsername = await User.findOne({ username });
+    if (existingUsername) {
+      return res.status(httpStatus.CONFLICT).json({
+        statusCode: httpStatus.CONFLICT,
+        success: false,
+        message: "User already exists with this username",
+      });
+    }
+
     // Hash the password before saving to the database
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -29,6 +38,8 @@ export const register = async (req, res) => {
       email,
       password: hashedPassword,
       role,
+      profilePicture: req.file?.path || "",
+      profilePicturePublicId: req.file?.filename || "",
     });
     //5. Return a success response with the created user data
     return res.status(httpStatus.CREATED).json({
@@ -45,6 +56,7 @@ export const register = async (req, res) => {
     });
     //6. Handle errors
   } catch (error) {
+    console.error("Registration error:", error);
     return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
       statusCode: httpStatus.INTERNAL_SERVER_ERROR,
       success: false,

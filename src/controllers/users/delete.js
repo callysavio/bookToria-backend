@@ -1,5 +1,6 @@
 import User from "../../models/user.js";
 import httpStatus from "http-status";
+import cloudinary from "../../config/cloudinary.js";
 //controller for deleting a user
 export const deleteUser = async (req, res) => {
   try {
@@ -14,6 +15,14 @@ export const deleteUser = async (req, res) => {
         message: "User not found",
       });
     }
+
+    // delete profile picture from cloudinary
+    if (user.profilePicturePublicId) {
+      await cloudinary.uploader.destroy(
+        user.profilePicturePublicId,
+      )
+    }
+
     //3. delete the user
     await User.findByIdAndDelete(id);
     //4. return success response

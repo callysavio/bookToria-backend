@@ -29,18 +29,18 @@ const blogSchema = new mongoose.Schema(
             type: [String],
             default: [],
         },
-        blogImage: {
-            type: String,
-            default: "",
+        blogImages: {
+            type: [String],
+            default: [],
         },
-        blogImagePublicId: {
-            type: String,
-            default: "",
+        blogImagePublicIds: {
+            type: [String],
+            default: [],
         },
     },
     { timestamps: true },
 );
-
+ 
 const Blog = mongoose.model("Blog", blogSchema);
 
-export default Blog;
+export default Blog; 

@@ -12,7 +12,7 @@ router.post(
   "/create",
   authMiddleware,
   authorizeRoles("admin"),
-  upload.single("blogImage"),
+  upload.array("images", 5), // Allow up to 5 images
   createBlog,
 );
 router.get("/fetch", fetchBlogs);

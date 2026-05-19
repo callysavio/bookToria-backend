@@ -1,5 +1,6 @@
 import Blog from "../../models/blog.js";
 import httpStatus from "http-status";
+import cloudinary from "../../config/cloudinary.js";
 
 const deleteBlog = async (req, res) => {
   try {
@@ -14,6 +15,15 @@ const deleteBlog = async (req, res) => {
         success: false,
         message: `Blog post with ID ${id} not found.`,
       });
+    }
+
+    // delete image from cloudinary
+    if (existingBlog.blogImagePublicIds?.length) {
+           await Promise.all(
+            existingBlog.blogImagePublicIds.map((publicId) => {
+             cloudinary.uploader.destroy(publicId);
+            })
+           )
     }
 
     // 4. Delete the blog post

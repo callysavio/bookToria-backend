@@ -38,8 +38,8 @@ export const createBlog = async (req, res) => {
       content,
       category,
       tags: tagArray,
-      blogImage: req.file?.path || "",
-      blogImagePublicId: req.file?.filename || "",
+      blogImages: req.files?.map((file) => file.path) || [],
+      blogImagePublicIds: req.files?.map((file) => file.filename) || [],
     });
 
     return res.status(httpStatus.CREATED).json({
