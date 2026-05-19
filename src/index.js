@@ -24,13 +24,18 @@ app.use((err, req, res, next) => {
   console.error("GLOBAL ERROR HANDLER:", err);
 
   if (err instanceof multer.MulterError) {
+    const messageByCode = {
+      LIMIT_FILE_SIZE: "File size exceeds the 2MB limit",
+      LIMIT_UNEXPECTED_FILE:
+        err.field === "blogImages"
+          ? "You can upload a maximum of 5 blog images"
+          : "Too many files uploaded or unexpected file field",
+    };
+
     return res.status(400).json({
       statusCode: 400,
       success: false,
-      message:
-        err.code === "LIMIT_FILE_SIZE"
-          ? "File size exceeds the 2MB limit"
-          : err.message,
+      message: messageByCode[err.code] || err.message,
     });
   }
 

@@ -1,6 +1,12 @@
 import httpStatus from "http-status";
 import mongoose from "mongoose";
 import Blog from "../../models/blog.js";
+import {
+  cleanupUploadedFiles,
+  getUploadedFile,
+  getUploadedFiles,
+  toCloudinaryImage,
+} from "../../utils/cloudinaryAssets.js";
 
 const allowedCategories = ["general", "food", "travel", "technology", "lifestyle"];
 
@@ -19,7 +25,38 @@ const normalizeTags = (tags) => {
   return [];
 };
 
+const normalizeBoolean = (value, defaultValue) => {
+  if (typeof value === "boolean") {
+    return value;
+  }
+
+  if (typeof value === "string") {
+    const normalizedValue = value.trim().toLowerCase();
+
+    if (normalizedValue === "true") {
+      return true;
+    }
+
+    if (normalizedValue === "false") {
+      return false;
+    }
+  }
+
+  return defaultValue;
+};
+
 const createBlogHandler = async (req, res) => {
+  const coverImage = getUploadedFile(req, "blogImage");
+  const galleryImages = getUploadedFiles(req, "blogImages");
+  const uploadedFiles = [coverImage, ...galleryImages].filter(Boolean);
+  let blogCreated = false;
+
+  const rejectWithCleanup = async (statusCode, payload) => {
+    await cleanupUploadedFiles(uploadedFiles);
+
+    return res.status(statusCode).json(payload);
+  };
+
   try {
     const { title, slug, content, image, category, tags, isPublished, userId } =
       req.body;
@@ -33,8 +70,13 @@ const createBlogHandler = async (req, res) => {
     const normalizedUserId =
       typeof userId === "string" ? userId.trim() : userId;
 
-    if (!normalizedTitle || !normalizedSlug || !normalizedContent || !normalizedCategory) {
-      return res.status(httpStatus.BAD_REQUEST).json({
+    if (
+      !normalizedTitle ||
+      !normalizedSlug ||
+      !normalizedContent ||
+      !normalizedCategory
+    ) {
+      return rejectWithCleanup(httpStatus.BAD_REQUEST, {
         statusCode: httpStatus.BAD_REQUEST,
         success: false,
         message: "title, slug, content, and category are required",
@@ -42,7 +84,7 @@ const createBlogHandler = async (req, res) => {
     }
 
     if (!allowedCategories.includes(normalizedCategory)) {
-      return res.status(httpStatus.BAD_REQUEST).json({
+      return rejectWithCleanup(httpStatus.BAD_REQUEST, {
         statusCode: httpStatus.BAD_REQUEST,
         success: false,
         message: `category must be one of: ${allowedCategories.join(", ")}`,
@@ -50,7 +92,7 @@ const createBlogHandler = async (req, res) => {
     }
 
     if (normalizedUserId && !mongoose.Types.ObjectId.isValid(normalizedUserId)) {
-      return res.status(httpStatus.BAD_REQUEST).json({
+      return rejectWithCleanup(httpStatus.BAD_REQUEST, {
         statusCode: httpStatus.BAD_REQUEST,
         success: false,
         message: "userId must be a valid MongoDB ObjectId",
@@ -59,7 +101,7 @@ const createBlogHandler = async (req, res) => {
 
     const existingBlog = await Blog.findOne({ slug: normalizedSlug });
     if (existingBlog) {
-      return res.status(httpStatus.CONFLICT).json({
+      return rejectWithCleanup(httpStatus.CONFLICT, {
         statusCode: httpStatus.CONFLICT,
         success: false,
         message: "A blog post with this slug already exists",
@@ -73,11 +115,13 @@ const createBlogHandler = async (req, res) => {
       image: typeof image === "string" && image.trim() ? image.trim() : undefined,
       category: normalizedCategory,
       tags: normalizeTags(tags),
-      isPublished: typeof isPublished === "boolean" ? isPublished : true,
-      blogImage: req.file?.path || "",
-      blogImagePublicId: req.file?.filename || "",
+      isPublished: normalizeBoolean(isPublished, true),
+      blogImage: coverImage?.path || "",
+      blogImagePublicId: coverImage?.filename || "",
+      blogImages: galleryImages.map(toCloudinaryImage),
       userId: normalizedUserId || undefined,
     });
+    blogCreated = true;
 
     return res.status(httpStatus.CREATED).json({
       statusCode: httpStatus.CREATED,
@@ -91,6 +135,7 @@ const createBlogHandler = async (req, res) => {
         image: blog.image,
         blogImage: blog.blogImage,
         blogImagePublicId: blog.blogImagePublicId,
+        blogImages: blog.blogImages,
         category: blog.category,
         tags: blog.tags,
         isPublished: blog.isPublished,
@@ -100,6 +145,10 @@ const createBlogHandler = async (req, res) => {
       },
     });
   } catch (error) {
+    if (!blogCreated) {
+      await cleanupUploadedFiles(uploadedFiles);
+    }
+
     if (error?.name === "ValidationError") {
       return res.status(httpStatus.BAD_REQUEST).json({
         statusCode: httpStatus.BAD_REQUEST,

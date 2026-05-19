@@ -9,6 +9,8 @@ import { register } from "../controllers/auth/register.js";
 import { login } from "../controllers/auth/login.js";
 import { updateUser } from "../controllers/users/update.js";
 import { deleteUser } from "../controllers/users/delete.js";
+import { updateProfilePicture } from "../controllers/users/updateProfilePicture.js";
+import upload from "../middlewares/multer.js";
 // Define the route for user registration
 router.post("/register", validate(registerValidationSchema), register);
 router.post("/login", login);
@@ -17,6 +19,13 @@ router.put(
   authMiddleware,
   authorizeRoles("admin", "user"),
   updateUser,
+);
+router.put(
+  "/profile-picture/:id",
+  authMiddleware,
+  authorizeRoles("admin", "user"),
+  upload.single("profilePicture"),
+  updateProfilePicture,
 );
 router.delete(
   "/delete/:id",

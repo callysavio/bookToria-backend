@@ -26,7 +26,10 @@ const upload = multer({
     ];
 
     if (!allowedMimeTypes.includes(file.mimetype)) {
-      return cb(new Error("Only image files are allowed"), false);
+      const error = new Error("Only image files are allowed");
+      error.status = 400;
+
+      return cb(error, false);
     }
 
     cb(null, true);
