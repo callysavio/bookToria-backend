@@ -15,6 +15,7 @@ const deleteBlog = async (req, res) => {
         message: `Blog post with ID ${id} not found.`,
       });
     }
+
     // 4. Delete the blog post
     await Blog.findByIdAndDelete(id);
     // 5. Return a success response
