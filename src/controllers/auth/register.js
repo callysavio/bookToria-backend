@@ -31,6 +31,7 @@ export const register = async (req, res) => {
       password: hashedPassword,
       role,
     });
+    
     //5. Return a success response with the created user data
     return res.status(httpStatus.CREATED).json({
       statusCode: httpStatus.CREATED,

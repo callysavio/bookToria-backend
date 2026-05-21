@@ -2,6 +2,7 @@ import bcrypt from "bcryptjs";
 import httpStatus from "http-status";
 import User from "../../models/user.js";
 import jwt from "jsonwebtoken";
+
 //controller for user login
 export const login = async (req, res) => {
   try {
