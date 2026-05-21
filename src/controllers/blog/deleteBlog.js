@@ -26,9 +26,9 @@ const deleteBlog = async (req, res) => {
            )
     }
 
-    // 4. Delete the blog post
+    // 5. Delete the blog post
     await Blog.findByIdAndDelete(id);
-    // 5. Return a success response
+    // 6. Return a success response
     return res.status(httpStatus.OK).json({
       statusCode: httpStatus.OK,
       success: true,

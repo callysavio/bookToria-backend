@@ -12,6 +12,7 @@ import upload from "../middlewares/multer.js";
 
 const router = express.Router();
 
+// import { apiLimiter } from "../middlewares/apiLimiter.js";
 // Define the route for user registration
 router.post(
   "/register",
