@@ -6,7 +6,6 @@ const blogSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-
     blogImagePublicId: {
       type: String,
       default: "",
@@ -50,11 +49,23 @@ const blogSchema = new mongoose.Schema(
       default:
         "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=80",
     },
+    status: {
+      type: String,
+      enum: ["draft", "published"],
+      default: "published",
+    },
     category: {
       type: String,
       required: true,
       trim: true,
-      enum: ["general", "food", "travel", "technology", "lifestyle"],
+      enum: [
+        "general",
+        "food",
+        "travel",
+        "technology",
+        "lifestyle",
+        "education",
+      ],
     },
     tags: {
       type: [String],
@@ -68,8 +79,13 @@ const blogSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 const Blog = mongoose.model("Blog", blogSchema);

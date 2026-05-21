@@ -9,10 +9,12 @@ import { register } from "../controllers/auth/register.js";
 import { login } from "../controllers/auth/login.js";
 import { updateUser } from "../controllers/users/update.js";
 import { deleteUser } from "../controllers/users/delete.js";
-import { apiLimiter } from "../middlewares/apiLimiter.js";
+import { updateProfilePicture } from "../controllers/users/updateProfilePicture.js";
+import upload from "../middlewares/multer.js";
+// import { apiLimiter } from "../middlewares/apiLimiter.js";
 // Define the route for user registration
 router.post("/register", validate(registerValidationSchema), register);
-router.post("/login", apiLimiter, login);
+router.post("/login", login);
 router.put(
   "/update/:id",
   authMiddleware,

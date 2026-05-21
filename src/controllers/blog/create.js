@@ -8,7 +8,15 @@ import {
   toCloudinaryImage,
 } from "../../utils/cloudinaryAssets.js";
 
-const allowedCategories = ["general", "food", "travel", "technology", "lifestyle"];
+const allowedCategories = [
+  "general",
+  "food",
+  "travel",
+  "technology",
+  "lifestyle",
+  "education",
+];
+const allowedStatuses = ["draft", "published"];
 
 const normalizeTags = (tags) => {
   if (typeof tags === "string") {
@@ -45,6 +53,13 @@ const normalizeBoolean = (value, defaultValue) => {
   return defaultValue;
 };
 
+const buildSlug = (value) =>
+  value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
 const createBlogHandler = async (req, res) => {
   const coverImage = getUploadedFile(req, "blogImage");
   const galleryImages = getUploadedFiles(req, "blogImages");
@@ -58,17 +73,40 @@ const createBlogHandler = async (req, res) => {
   };
 
   try {
-    const { title, slug, content, image, category, tags, isPublished, userId } =
-      req.body;
+    const {
+      title,
+      slug,
+      content,
+      image,
+      category,
+      tags,
+      isPublished,
+      status,
+      userId,
+      author,
+    } = req.body;
 
     const normalizedTitle = typeof title === "string" ? title.trim() : "";
     const normalizedSlug =
-      typeof slug === "string" ? slug.trim().toLowerCase() : "";
+      typeof slug === "string" && slug.trim()
+        ? buildSlug(slug)
+        : buildSlug(normalizedTitle);
     const normalizedContent = typeof content === "string" ? content.trim() : "";
     const normalizedCategory =
       typeof category === "string" ? category.trim().toLowerCase() : "";
     const normalizedUserId =
       typeof userId === "string" ? userId.trim() : userId;
+    const normalizedAuthorId =
+      typeof author === "string" ? author.trim() : author;
+    const blogAuthorId = normalizedAuthorId || normalizedUserId || req.user?.id;
+    const normalizedStatus =
+      typeof status === "string" ? status.trim().toLowerCase() : "";
+    const isPublishedValue = normalizeBoolean(
+      isPublished,
+      normalizedStatus ? normalizedStatus === "published" : true,
+    );
+    const blogStatus =
+      normalizedStatus || (isPublishedValue ? "published" : "draft");
 
     if (
       !normalizedTitle ||
@@ -79,7 +117,7 @@ const createBlogHandler = async (req, res) => {
       return rejectWithCleanup(httpStatus.BAD_REQUEST, {
         statusCode: httpStatus.BAD_REQUEST,
         success: false,
-        message: "title, slug, content, and category are required",
+        message: "title, content, and category are required",
       });
     }
 
@@ -88,6 +126,22 @@ const createBlogHandler = async (req, res) => {
         statusCode: httpStatus.BAD_REQUEST,
         success: false,
         message: `category must be one of: ${allowedCategories.join(", ")}`,
+      });
+    }
+
+    if (!allowedStatuses.includes(blogStatus)) {
+      return rejectWithCleanup(httpStatus.BAD_REQUEST, {
+        statusCode: httpStatus.BAD_REQUEST,
+        success: false,
+        message: `status must be one of: ${allowedStatuses.join(", ")}`,
+      });
+    }
+
+    if (!blogAuthorId || !mongoose.Types.ObjectId.isValid(blogAuthorId)) {
+      return rejectWithCleanup(httpStatus.BAD_REQUEST, {
+        statusCode: httpStatus.BAD_REQUEST,
+        success: false,
+        message: "author must be a valid MongoDB ObjectId",
       });
     }
 
@@ -115,11 +169,13 @@ const createBlogHandler = async (req, res) => {
       image: typeof image === "string" && image.trim() ? image.trim() : undefined,
       category: normalizedCategory,
       tags: normalizeTags(tags),
-      isPublished: normalizeBoolean(isPublished, true),
+      status: blogStatus,
+      isPublished: isPublishedValue,
       blogImage: coverImage?.path || "",
       blogImagePublicId: coverImage?.filename || "",
       blogImages: galleryImages.map(toCloudinaryImage),
       userId: normalizedUserId || undefined,
+      author: blogAuthorId,
     });
     blogCreated = true;
 
@@ -138,8 +194,10 @@ const createBlogHandler = async (req, res) => {
         blogImages: blog.blogImages,
         category: blog.category,
         tags: blog.tags,
+        status: blog.status,
         isPublished: blog.isPublished,
         userId: blog.userId,
+        author: blog.author,
         createdAt: blog.createdAt,
         updatedAt: blog.updatedAt,
       },
