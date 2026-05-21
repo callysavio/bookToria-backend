@@ -7,6 +7,7 @@ dotenv.config();
 //create an instance of express server object:
 const app = express();
 app.use(express.json());
+//app.use(express.urlencoded({ extended: true }));
 
 //use the user routes for handling user-related requests
 app.use("/users", userRoutes);

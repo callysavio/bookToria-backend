@@ -1,5 +1,6 @@
 import Blog from "../../models/blog.js";
 import httpStatus from "http-status";
+import cloudinary from "../../config/cloudinary.js";
 
 // Controller for updating a blog post
 const updateBlog = async (req, res) => {
@@ -21,6 +22,31 @@ const updateBlog = async (req, res) => {
         message: "Blog post not found",
       });
     }
+    //4. Handle uploaded files (supports multiple)
+    const files = req.files || [];
+    const oldPublicIds = updatedBlog.blogImagePublicId || [];
+
+    // delete existing Cloudinary images sequentially
+    for (let i = 0; i < oldPublicIds.length; i++) {
+      await cloudinary.uploader.destroy(oldPublicIds[i]);
+    }
+
+    // collect new filenames (avoid .map)
+    const newFilenames = [];
+    for (let i = 0; i < files.length; i++) {
+      newFilenames.push(files[i].filename);
+    }
+
+    updatedBlog.blogImage = newFilenames;
+    updatedBlog.blogImagePublicId = newFilenames;
+
+    //Update other fields
+    updatedBlog.title = title || updatedBlog.title;
+    updatedBlog.author = author || updatedBlog.author;
+    updatedBlog.content = content || updatedBlog.content;
+
+    await updatedBlog.save();
+
     return res.status(200).json({
       statusCode: 200,
       success: true,

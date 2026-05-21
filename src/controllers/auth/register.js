@@ -29,6 +29,10 @@ export const register = async (req, res) => {
       email,
       password: hashedPassword,
       role,
+      // NEW
+      profilePicture: req.file?.path || "",
+
+      profilePicturePublicId: req.file?.filename || "",
     });
     //5. Return a success response with the created user data
     return res.status(httpStatus.CREATED).json({
@@ -41,7 +45,7 @@ export const register = async (req, res) => {
         username: user.username,
         email: user.email,
         role: user.role,
-        password: user.password,
+        // password: user.password,
       },
     });
     //6. Handle errors

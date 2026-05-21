@@ -4,6 +4,8 @@ import { createBlogValidationSchema } from "../../validators/authValidator.js";
 // Controller for creating a new blog post
 export const createBlog = async (req, res) => {
   try {
+    //console.log(req.body);
+    //console.log(req.file);
     // 1. Get blog data from the request body
     const { title, content, category, tags } = req.body;
 
@@ -34,13 +36,17 @@ export const createBlog = async (req, res) => {
         message: "A blog post with this title already exists",
       });
     }
+    const files = req.files || [];
+
     // 4. Create a new blog post
     blog = await Blog.create({
       title,
       content,
       category,
-      tags,
-      // author,
+      tags: tags || [],
+      blogImage: files.map((file) => file.filename),
+      blogImagePublicId: files.map((file) => file.filename),
+      // author: req.user.id
     });
 
     // 5. Return the created blog post
@@ -51,6 +57,7 @@ export const createBlog = async (req, res) => {
       data: blog,
     });
   } catch (error) {
+    //console.log(error);
     return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
       statusCode: httpStatus.INTERNAL_SERVER_ERROR,
       success: false,

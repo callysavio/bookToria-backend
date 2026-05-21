@@ -1,5 +1,6 @@
 import User from "../../models/user.js";
 import httpStatus from "http-status";
+import cloudinary from "../../config/cloudinary.js";
 // Controller for updating user details
 const updateUser = async (req, res) => {
   try {
@@ -20,6 +21,29 @@ const updateUser = async (req, res) => {
         message: "User not found",
       });
     }
+
+    //4. Delete old image if new image exists
+    if (req.file) {
+      // Delete old Cloudinary image
+      if (User.profilePicturePublicId) {
+        await cloudinary.uploader.destroy(User.profilePicturePublicId);
+      }
+
+      // Save new image
+      updatedUser.profilePicture = req.file.path;
+
+      updatedUser.profilePicturePublicId = req.file.filename;
+    }
+
+    // Update other fields
+    updatedUser.username = username || updatedUser.username;
+
+    updatedUser.password = password || updatedUser.password;
+
+    updatedUser.role = role || updatedUser.role;
+
+    await updatedUser.save();
+
     res.status(httpStatus.OK).json({
       statusCode: httpStatus.OK,
       success: true,
