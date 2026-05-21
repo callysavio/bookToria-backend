@@ -7,7 +7,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "https://cdn-icons-png.flaticon.com/128/2202/2202112.png",
     },
+<<<<<<< HEAD
 
+=======
+>>>>>>> 38e635b4e7ef2539f965217c7e409c84fe49e320
     profilePicturePublicId: {
       type: String,
       default: "",

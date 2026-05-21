@@ -4,16 +4,13 @@ import mongoose from "mongoose";
 const blogSchema = new mongoose.Schema(
   {
     blogImage: {
-      type: [String],
-      default: [],
+      type: String,
+      default: "",
     },
-
-    // NEW FIELD
     blogImagePublicId: {
-      type: [String],
-      default: [],
+      type: String,
+      default: "",
     },
-
     title: {
       type: String,
       required: true,
@@ -25,6 +22,28 @@ const blogSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    status: {
+      type: String,
+      enum: ["draft", "published"],
+      default: "published",
+    },
+    category: {
+      type: String,
+      enum: ["technology", "lifestyle", "travel", "food", "education"],
+      required: true,
+    },
+    tags: {
+      type: [String],
+      default: [],
+    },
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+  },
+  {
+    timestamps: true,
   },
   { timestamps: true },
 );

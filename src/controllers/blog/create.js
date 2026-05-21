@@ -1,5 +1,6 @@
 import Blog from "../../models/blog.js";
 import httpStatus from "http-status";
+<<<<<<< HEAD
 import { createBlogValidationSchema } from "../../validators/authValidator.js";
 // Controller for creating a new blog post
 export const createBlog = async (req, res) => {
@@ -28,6 +29,13 @@ export const createBlog = async (req, res) => {
     // 3. Define the blog variable to store the created blog post
     let blog;
     //4. Check if blog with the same title already exists
+=======
+
+export const createBlog = async (req, res) => {
+  try {
+    const { title, content, category, tags, author } = req.body;
+
+>>>>>>> 38e635b4e7ef2539f965217c7e409c84fe49e320
     const existingBlog = await Blog.findOne({ title });
     if (existingBlog) {
       return res.status(httpStatus.CONFLICT).json({
@@ -36,6 +44,7 @@ export const createBlog = async (req, res) => {
         message: "A blog post with this title already exists",
       });
     }
+<<<<<<< HEAD
     const files = req.files || [];
 
     // 4. Create a new blog post
@@ -47,9 +56,26 @@ export const createBlog = async (req, res) => {
       blogImage: files.map((file) => file.filename),
       blogImagePublicId: files.map((file) => file.filename),
       // author: req.user.id
+=======
+
+    const tagArray =
+      typeof tags === "string"
+        ? tags.split(",").map((tag) => tag.trim())
+        : Array.isArray(tags)
+          ? tags
+          : [];
+
+    const blog = await Blog.create({
+      title,
+      content,
+      category,
+      tags: tagArray,
+      blogImage: req.file?.path || "",
+      blogImagePublicId: req.file?.filename || "",
+      author,
+>>>>>>> 38e635b4e7ef2539f965217c7e409c84fe49e320
     });
 
-    // 5. Return the created blog post
     return res.status(httpStatus.CREATED).json({
       statusCode: httpStatus.CREATED,
       success: true,
@@ -57,12 +83,27 @@ export const createBlog = async (req, res) => {
       data: blog,
     });
   } catch (error) {
+<<<<<<< HEAD
     //console.log(error);
+=======
+    console.error("DEBUG CREATE BLOG ERROR:", error);
+
+    // Safely convert message to string — handles object messages from Cloudinary/Mongoose
+    const message =
+      typeof error?.message === "string"
+        ? error.message
+        : (JSON.stringify(error?.message) ?? "An error occurred");
+
+>>>>>>> 38e635b4e7ef2539f965217c7e409c84fe49e320
     return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
       statusCode: httpStatus.INTERNAL_SERVER_ERROR,
       success: false,
-      message: "An error occurred while creating the blog post",
-      error: error.message,
+      message,
+      error: {
+        name: error?.name,
+        code: error?.code,
+        details: error?.errors ?? null,
+      },
     });
   }
 };
