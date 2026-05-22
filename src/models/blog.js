@@ -3,6 +3,14 @@ import mongoose from "mongoose";
 // Define the User schema
 const blogSchema = new mongoose.Schema(
   {
+    blogImage: {
+      type: String,
+      default: "",
+    },
+    blogImagePublicId: {
+      type: String,
+      default: "",
+    },
     title: {
       type: String,
       required: true,
@@ -28,7 +36,7 @@ const blogSchema = new mongoose.Schema(
     author: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      //   required: true,
+      required: true,
     },
   },
     { timestamps: true },

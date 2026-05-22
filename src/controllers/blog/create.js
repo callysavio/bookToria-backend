@@ -3,7 +3,7 @@ import httpStatus from "http-status";
 
 export const createBlog = async (req, res) => {
   try {
-    const { title, content, category, tags } = req.body;
+    const { title, content, category, tags, author } = req.body;
 
     const existingBlog = await Blog.findOne({ title });
     if (existingBlog) {
@@ -28,6 +28,7 @@ export const createBlog = async (req, res) => {
       tags: tagArray,
       blogImage: req.file?.path || "",
       blogImagePublicId: req.file?.filename || "",
+      author,
     });
 
     return res.status(httpStatus.CREATED).json({
