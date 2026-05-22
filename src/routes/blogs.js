@@ -22,4 +22,5 @@ router.delete(
   authorizeRoles("admin"),
   deleteBlog,
 );
+
 export default router;
