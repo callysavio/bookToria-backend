@@ -8,6 +8,7 @@ const createBlogValidationSchema = Joi.object({
     .valid("Technology", "Lifestyle", "Travel", "Food", "Education")
     .required(),
   tags: Joi.array().items(Joi.string()).max(10),
+  author: Joi.string().hex().length(24).required(),
 });
 
 const updateBlogValidationSchema = Joi.object({

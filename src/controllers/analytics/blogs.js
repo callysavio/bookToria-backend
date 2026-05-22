@@ -101,7 +101,7 @@ const getBlogsWithAuthors = async (req, res) => {
       statusCode: httpStatus.INTERNAL_SERVER_ERROR,
       success: false,
       message: "An error occurred while fetching Data.",
-      error: e.message,
+      error: error.message,
     });
   }
 };

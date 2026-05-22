@@ -14,7 +14,7 @@ export const createBlog = async (req, res) => {
         error: error.details.map((detail) => detail.message),
       });
     }
-    
+
     const { title, content, category, tags, author } = req.body;
 
     const existingBlog = await Blog.findOne({ title });
@@ -40,8 +40,6 @@ export const createBlog = async (req, res) => {
       tags: tagArray,
       blogImages: req.files?.map((file) => file.path) || [],
       blogImagePublicIds: req.files?.map((file) => file.filename) || [],
-      blogImage: req.file?.path || "",
-      blogImagePublicId: req.file?.filename || "",
       author,
     });
 

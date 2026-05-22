@@ -10,7 +10,7 @@ const blogSchema = new mongoose.Schema(
         author: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User",
-            // required: true,
+            required: true,
         },
         content: {
             type: String,
@@ -19,7 +19,9 @@ const blogSchema = new mongoose.Schema(
         },
         status: {
             type: String,
-        },
+            enum: ["draft", "published"],
+            default: "published",
+       },
         category: {
             type: String,
             enum: ["Technology", "Lifestyle", "Travel", "Food", "Education"],
