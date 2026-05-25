@@ -1,7 +1,9 @@
 import bcrypt from "bcryptjs";
 import httpStatus from "http-status";
 import User from "../../models/user.js";
-import jwt from "jsonwebtoken";
+import generateOtp from "../../utils/generateOtp.js";
+import OTP from "../../models/otp.js";
+import sendEmail from "../../utils/sendEmail.js";
 //controller for user login
 export const login = async (req, res) => {
   try {
@@ -27,19 +29,37 @@ export const login = async (req, res) => {
       });
     }
 
-    //4. Generate JWT token
-    const accessToken = jwt.sign(
-      { id: user._id, email: user.email, role: user.role },
-      process.env.JWT_SECRET,
-      { expiresIn: process.env.JWT_EXPIRES_IN },
+    //4. Generate OTP
+    const otp = generateOtp();
+
+    // 5. Delete old OTP if exists
+    await OTP.deleteMany({ email });
+    // 6. Save new OTP
+    await OTP.create({
+      email,
+      otp,
+      expiresAt: new Date(Date.now() + 5 * 60 * 1000),
+    });
+
+    // 7. Send OTP email
+    await sendEmail(
+      email,
+      "Login OTP Code",
+      `
+       <div style="font-family: Arial;">
+         <h2>OTP Verification</h2>
+         <p>Your OTP code is:</p>
+         <h1>${otp}</h1>
+         <p>This OTP expires in 5 minutes.</p>
+       </div>
+     `,
     );
 
-    //5. Send response
+    //8. Send response
     res.status(httpStatus.OK).json({
       statusCode: httpStatus.OK,
       success: true,
-      message: "Login successful",
-      data: { accessToken },
+      message: "OTP sent to your email!",
     });
   } catch (error) {
     res.status(httpStatus.INTERNAL_SERVER_ERROR).json({

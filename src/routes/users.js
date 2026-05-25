@@ -11,7 +11,7 @@ import { deleteUser } from "../controllers/users/delete.js";
 import upload from "../middlewares/multer.js";
 
 const router = express.Router();
-
+import { verifyOtp } from "../controllers/auth/verifyOtp.js";
 // import { apiLimiter } from "../middlewares/apiLimiter.js";
 // Define the route for user registration
 router.post(
@@ -21,6 +21,7 @@ router.post(
   register,
 );
 router.post("/login", login);
+router.post("/verify-otp", verifyOtp);
 router.put(
   "/update/:id",
   authMiddleware,
