@@ -1,6 +1,7 @@
 import Blog from "../../models/blog.js";
 import httpStatus from "http-status";
 import { updateBlogValidationSchema } from "../../validators/blogValidator.js";
+import cloudinary from "../../config/cloudinary.js";
 // Controller for updating blog details
 const updateBlog = async (req, res) => {
   try {
@@ -16,6 +17,29 @@ const updateBlog = async (req, res) => {
         error: error.details.map((detail) => detail.message),
       });
     }
+
+    const blog = await Blog.findById(id);
+
+    if (!blog) {
+      return res.status(httpStatus.NOT_FOUND).json({
+        statusCode: httpStatus.NOT_FOUND,
+        success: false,
+        message: "Blog not found",
+      });
+    }
+
+    // Handle image update
+    if (req.file) {
+      // Delete old image from Cloudinary
+      if (blog.blogImagePublicId) {
+        await cloudinary.uploader.destroy(blog.blogImagePublicId);
+      }
+
+      // Save new image
+      blog.blogImage = req.file.path;
+      blog.blogImagePublicId = req.file.filename;
+    }
+
     // 3. Get the data to be updated blog data from the request body
     const { title, content, category, tags, author } = req.body;
     // 4. Find the blog by ID and update the details

@@ -7,7 +7,10 @@ import fetchBlogById from "../controllers/blog/fetchBlogById.js";
 import { updateBlog } from "../controllers/blog/updateBlog.js";
 import { deleteBlog } from "../controllers/blog/deleteBlog.js";
 import upload from "../middlewares/multer.js";
+import { searchBlogs } from "../controllers/analytics/blogs.js";
+import { uploadBlogImages } from "../controllers/blog/uploadImages.js";
 const router = express.Router();
+router.get("/search", authMiddleware, searchBlogs);
 router.post(
   "/create",
   authMiddleware,
@@ -17,7 +20,20 @@ router.post(
 );
 router.get("/fetch", fetchBlogs);
 router.get("/details/:id", fetchBlogById);
-router.put("/update/:id", updateBlog);
+router.put(
+  "/update/:id",
+  authMiddleware,
+  authorizeRoles("admin"),
+  upload.single("blogImage"),
+  updateBlog,
+);
+router.post(
+  "/upload-images",
+  authMiddleware,
+  authorizeRoles("admin"),
+  upload.array("blogImages", 5),
+  uploadBlogImages,
+);
 router.delete(
   "/delete/:id",
   authMiddleware,
