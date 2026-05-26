@@ -7,6 +7,7 @@ import { registerValidationSchema } from "../validators/auth/register.js";
 import { validate } from "../middlewares/validate.js";
 import { register } from "../controllers/auth/register.js";
 import { login } from "../controllers/auth/login.js";
+import { verifyOtp } from "../controllers/auth/verifyOtp.js";
 import { updateUser } from "../controllers/users/update.js";
 import { deleteUser } from "../controllers/users/delete.js";
 import { loginValidationSchema } from "../validators/auth/login.js";
@@ -21,7 +22,8 @@ router.post(
   validate(registerValidationSchema),
   register,
 );
-router.post("/login", validate(loginValidationSchema), apiLimiter, login);
+router.post("/login", validate(loginValidationSchema), login);
+router.post("/verify-otp", verifyOtp);
 router.put(
   "/update/:id",
   validate(updateValidationSchema),
