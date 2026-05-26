@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { connectDB } from "./db/connection.js";
 import userRoutes from "./routes/users.js";
 import blogRoutes from "./routes/blogs.js";
+import analyticsRoutes from "./routes/analytics/blogs.js";
 
 dotenv.config();
 
@@ -13,6 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/users", userRoutes);
 app.use("/blogs", blogRoutes);
+app.use("/blogs/analytics", analyticsRoutes);
 
 app.get("/", function (req, res) {
   res.send("Welcome to Book-toria backend!");

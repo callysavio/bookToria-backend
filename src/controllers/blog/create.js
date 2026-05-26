@@ -1,16 +1,25 @@
 import Blog from "../../models/blog.js";
 import httpStatus from "http-status";
+import User from "../../models/user.js";
 
 export const createBlog = async (req, res) => {
   try {
-    const { title, content, category, tags } = req.body;
+    const { title, content, category, tags, status } = req.body;
+    const author = await User.findById(req.user.id);
+    if (!author) {
+      return res.status(httpStatus.NOT_FOUND).json({
+        statusCode: httpStatus.NOT_FOUND,
+        success: false,
+        message: "User not found",
+      });
+    }
 
     const existingBlog = await Blog.findOne({ title });
     if (existingBlog) {
       return res.status(httpStatus.CONFLICT).json({
         statusCode: httpStatus.CONFLICT,
         success: false,
-        message: "A blog post with this title already exists",
+        message: `A blog post with this title "${title}" already exists`,
       });
     }
 
@@ -32,6 +41,8 @@ export const createBlog = async (req, res) => {
       tags: tagArray,
       blogImage: blogImageUrl,
       blogImagePublicId,
+      author: author._id,
+      status,
     });
 
     return res.status(httpStatus.CREATED).json({
