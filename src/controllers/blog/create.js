@@ -4,15 +4,7 @@ import User from "../../models/user.js";
 
 export const createBlog = async (req, res) => {
   try {
-    const { title, content, category, tags, status } = req.body;
-    const author = await User.findById(req.user.id);
-    if (!author) {
-      return res.status(httpStatus.NOT_FOUND).json({
-        statusCode: httpStatus.NOT_FOUND,
-        success: false,
-        message: "User not found",
-      });
-    }
+    const { title, content, category, tags, author } = req.body;
 
     const existingBlog = await Blog.findOne({ title });
     if (existingBlog) {
@@ -39,10 +31,9 @@ export const createBlog = async (req, res) => {
       content,
       category,
       tags: tagArray,
-      blogImage: blogImageUrl,
-      blogImagePublicId,
-      author: author._id,
-      status,
+      blogImage: req.file?.path || "",
+      blogImagePublicId: req.file?.filename || "",
+      author,
     });
 
     return res.status(httpStatus.CREATED).json({

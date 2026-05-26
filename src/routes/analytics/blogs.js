@@ -1,14 +1,13 @@
 import express from "express";
 import {
   blogsPerCategory,
-  getBlogsByStatusStats,
-  getBlogsByAuthorStats,
-} from "../../controllers/analytics/blog.js";
+  getBlogStatusStats,
+  getBlogsWithAuthors,
+} from "../../controllers/analytics/blogs.js";
 import authMiddleware from "../../middlewares/auth.js";
 import authorizeRoles from "../../middlewares/authorizeRole.js";
-
 const router = express.Router();
-
+//Analytics routes
 router.get(
   "/blogs-per-category",
   authMiddleware,
@@ -16,16 +15,16 @@ router.get(
   blogsPerCategory,
 );
 router.get(
-  "/blogs-by-status-stats",
+  "/blog-status-stats",
   authMiddleware,
   authorizeRoles("admin"),
-  getBlogsByStatusStats,
-);
-router.get(
-  "/blogs-by-author-stats",
-  authMiddleware,
-  authorizeRoles("admin"),
-  getBlogsByAuthorStats,
+  getBlogStatusStats,
 );
 
+router.get(
+  "/blogs-with-authors",
+  authMiddleware,
+  authorizeRoles("admin"),
+  getBlogsWithAuthors,
+);
 export default router;

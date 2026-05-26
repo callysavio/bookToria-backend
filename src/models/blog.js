@@ -7,7 +7,6 @@ const blogSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-
     blogImagePublicId: {
       type: String,
       default: "",
