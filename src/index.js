@@ -1,4 +1,6 @@
 import express from "express";
+import morgan from "morgan";
+import logger from "./utilis/logger.js";
 import multer from "multer";
 import dotenv from "dotenv";
 import { connectDB } from "./db/connection.js";
@@ -8,12 +10,19 @@ import analyticsRoutes from "./routes/analytics/blogs.js";
 dotenv.config();
 
 const app = express();
+
 app.use(express.json());
-<<<<<<< HEAD
-//app.use(express.urlencoded({ extended: true }));
-=======
+
+// Morgan + Winston
+app.use(
+  morgan("combined", {
+    stream: {
+      write: (message) => logger.info(message.trim()),
+    },
+  }),
+);
+
 app.use(express.urlencoded({ extended: true }));
->>>>>>> 38e635b4e7ef2539f965217c7e409c84fe49e320
 
 app.use("/users", userRoutes);
 app.use("/blogs", blogRoutes);

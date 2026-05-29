@@ -1,0 +1,25 @@
+2026-05-26T14:58:36.516Z info: ::1 - - [26/May/2026:14:58:36 +0000] "POST /users/verify-otp HTTP/1.1" 400 58 "-" "PostmanRuntime/7.54.0"
+2026-05-26T14:59:02.466Z info: ::1 - - [26/May/2026:14:59:02 +0000] "POST /users/verify-otp HTTP/1.1" 400 58 "-" "PostmanRuntime/7.54.0"
+2026-05-26T14:59:13.254Z info: ::1 - - [26/May/2026:14:59:13 +0000] "POST /users/verify-otp HTTP/1.1" 400 58 "-" "PostmanRuntime/7.54.0"
+2026-05-26T15:02:34.446Z info: Login attempt: jay123@gmail.com
+2026-05-26T15:02:34.580Z error: Login error: Illegal arguments: undefined, string
+2026-05-26T15:02:34.586Z info: ::1 - - [26/May/2026:15:02:34 +0000] "POST /users/login HTTP/1.1" 500 124 "-" "PostmanRuntime/7.54.0"
+2026-05-26T15:04:46.903Z info: Login attempt: jay123@gmail.com
+2026-05-26T15:04:50.134Z info: ::1 - - [26/May/2026:15:04:50 +0000] "POST /users/login HTTP/1.1" 200 68 "-" "PostmanRuntime/7.54.0"
+2026-05-26T15:07:54.849Z info: ::1 - - [26/May/2026:15:07:54 +0000] "POST /users/verify-otp HTTP/1.1" 200 324 "-" "PostmanRuntime/7.54.0"
+2026-05-29T12:39:17.784Z info: ::1 - - [29/May/2026:12:39:17 +0000] "POST /users/register HTTP/1.1" 409 82 "-" "PostmanRuntime/7.54.0"
+2026-05-29T12:40:10.090Z info: ::1 - - [29/May/2026:12:40:10 +0000] "POST /users/register HTTP/1.1" 201 214 "-" "PostmanRuntime/7.54.0"
+2026-05-29T12:43:40.520Z info: ::1 - - [29/May/2026:12:43:40 +0000] "POST /users/6a198929d1c5067700d3a10b HTTP/1.1" 404 170 "-" "PostmanRuntime/7.54.0"
+2026-05-29T12:43:53.154Z info: ::1 - - [29/May/2026:12:43:53 +0000] "DELETE /users/6a198929d1c5067700d3a10b HTTP/1.1" 404 172 "-" "PostmanRuntime/7.54.0"
+2026-05-29T12:44:15.435Z info: ::1 - - [29/May/2026:12:44:15 +0000] "DELETE /users/delete/6a198929d1c5067700d3a10b HTTP/1.1" 404 44 "-" "PostmanRuntime/7.54.0"
+2026-05-29T12:44:32.291Z info: Login attempt: jay123@gmail.com
+2026-05-29T12:44:38.682Z info: ::1 - - [29/May/2026:12:44:38 +0000] "POST /users/login HTTP/1.1" 200 68 "-" "PostmanRuntime/7.54.0"
+2026-05-29T12:45:23.217Z info: Login attempt: jay123@gmail.com
+2026-05-29T12:45:23.489Z error: Login error: Illegal arguments: undefined, string
+2026-05-29T12:45:23.493Z info: ::1 - - [29/May/2026:12:45:23 +0000] "POST /users/login HTTP/1.1" 500 124 "-" "PostmanRuntime/7.54.0"
+2026-05-29T12:47:26.019Z info: Login attempt: jay123@gmail.com
+2026-05-29T12:47:31.219Z info: ::1 - - [29/May/2026:12:47:31 +0000] "POST /users/login HTTP/1.1" 200 68 "-" "PostmanRuntime/7.54.0"
+2026-05-29T12:49:24.821Z info: ::1 - - [29/May/2026:12:49:24 +0000] "POST /users/verify-otp HTTP/1.1" 200 324 "-" "PostmanRuntime/7.54.0"
+2026-05-29T12:50:39.061Z info: Login attempt: jay123@gmail.com
+2026-05-29T12:50:49.266Z info: ::1 - - [29/May/2026:12:50:49 +0000] "POST /users/login HTTP/1.1" 200 68 "-" "PostmanRuntime/7.54.0"
+2026-05-29T12:51:38.496Z info: ::1 - - [29/May/2026:12:51:38 +0000] "DELETE /users/delete/6a198929d1c5067700d3a10b HTTP/1.1" 200 71 "-" "PostmanRuntime/7.54.0"

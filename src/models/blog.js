@@ -4,19 +4,21 @@ import mongoose from "mongoose";
 const blogSchema = new mongoose.Schema(
   {
     blogImage: {
-      type: String,
-      default: "",
+      type: [String],
+      default: [],
     },
     blogImagePublicId: {
-      type: String,
-      default: "",
+      type: [String],
+      default: [],
     },
     title: {
       type: String,
       required: true,
     },
     author: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
     },
     content: {
       type: String,
@@ -36,15 +38,8 @@ const blogSchema = new mongoose.Schema(
       type: [String],
       default: [],
     },
-    author: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
-    },
   },
-  {
-    timestamps: true,
-  },
+
   { timestamps: true },
 );
 

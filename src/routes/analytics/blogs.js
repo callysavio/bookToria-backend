@@ -4,7 +4,7 @@ import {
   getBlogStatusStats,
   getBlogsWithAuthors,
 } from "../../controllers/analytics/blogs.js";
-import authMiddleware from "../../middlewares/auth.js";
+import { authMiddleware } from "../../middlewares/auth.js";
 import authorizeRoles from "../../middlewares/authorizeRole.js";
 const router = express.Router();
 //Analytics routes
