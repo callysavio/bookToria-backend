@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 2026-05-26T15:02:34.580Z error: Login error: Illegal arguments: undefined, string
 2026-05-29T12:45:23.489Z error: Login error: Illegal arguments: undefined, string
+=======
+2026-05-26T14:48:42.388Z error: Login error: getaddrinfo ENOTFOUND ac-uj1kin0-shard-00-00.fx98zxa.mongodb.net
+>>>>>>> 9ccfb08dce300102372d82f6f646c54c880edce8

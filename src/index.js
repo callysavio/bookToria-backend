@@ -1,19 +1,24 @@
 import express from "express";
 import morgan from "morgan";
-import logger from "./utilis/logger.js";
+
 import multer from "multer";
 import dotenv from "dotenv";
+
+import logger from "./utils/logger.js";
+import monitor from "./middlewares/monitor.js";
 import { connectDB } from "./db/connection.js";
 import userRoutes from "./routes/users.js";
 import blogRoutes from "./routes/blogs.js";
 import analyticsRoutes from "./routes/analytics/blogs.js";
+import healthRoute from "./routes/health.js";
 dotenv.config();
 
 const app = express();
-
+dotenv.config();
 app.use(express.json());
 
-// Morgan + Winston
+app.use(express.urlencoded({ extended: true }));
+app.use(monitor);
 app.use(
   morgan("combined", {
     stream: {
@@ -22,11 +27,11 @@ app.use(
   }),
 );
 
-app.use(express.urlencoded({ extended: true }));
-
+//Define API routes
 app.use("/users", userRoutes);
 app.use("/blogs", blogRoutes);
 app.use("/analytics", analyticsRoutes);
+app.use(healthRoute);
 
 app.get("/", function (req, res) {
   res.send("Welcome to Book-toria backend!");

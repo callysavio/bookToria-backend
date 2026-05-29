@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2026-05-26T14:58:36.516Z info: ::1 - - [26/May/2026:14:58:36 +0000] "POST /users/verify-otp HTTP/1.1" 400 58 "-" "PostmanRuntime/7.54.0"
 2026-05-26T14:59:02.466Z info: ::1 - - [26/May/2026:14:59:02 +0000] "POST /users/verify-otp HTTP/1.1" 400 58 "-" "PostmanRuntime/7.54.0"
 2026-05-26T14:59:13.254Z info: ::1 - - [26/May/2026:14:59:13 +0000] "POST /users/verify-otp HTTP/1.1" 400 58 "-" "PostmanRuntime/7.54.0"
@@ -23,3 +24,32 @@
 2026-05-29T12:50:39.061Z info: Login attempt: jay123@gmail.com
 2026-05-29T12:50:49.266Z info: ::1 - - [29/May/2026:12:50:49 +0000] "POST /users/login HTTP/1.1" 200 68 "-" "PostmanRuntime/7.54.0"
 2026-05-29T12:51:38.496Z info: ::1 - - [29/May/2026:12:51:38 +0000] "DELETE /users/delete/6a198929d1c5067700d3a10b HTTP/1.1" 200 71 "-" "PostmanRuntime/7.54.0"
+=======
+2026-05-26T14:13:55.593Z info: 1 - - [26/May/2026:14:13:55 +0000] "POST /users/login HTTP/1.1" 200 69 "-" "PostmanRuntime/7.54.0"
+2026-05-26T14:22:15.140Z info: ::1 - - [26/May/2026:14:22:15 +0000] "POST /users/verify-otp HTTP/1.1" 400 58 "-" "PostmanRuntime/7.54.0"
+2026-05-26T14:23:28.627Z info: ::1 - - [26/May/2026:14:23:28 +0000] "POST /users/login HTTP/1.1" 200 69 "-" "PostmanRuntime/7.54.0"
+2026-05-26T14:23:57.864Z info: ::1 - - [26/May/2026:14:23:57 +0000] "POST /users/verify-otp HTTP/1.1" 200 342 "-" "PostmanRuntime/7.54.0"
+2026-05-26T14:33:45.938Z info: Login attempt: bcloudtechnologiesng@gmail.com
+2026-05-26T14:33:46.202Z warn: Wrong password attempt: bcloudtechnologiesng@gmail.com
+2026-05-26T14:33:46.207Z info: ::1 - - [26/May/2026:14:33:46 +0000] "POST /users/login HTTP/1.1" 401 66 "-" "PostmanRuntime/7.54.0"
+2026-05-26T14:43:59.383Z info: Login attempt: bcloudtechnologiesng@gmail.com
+2026-05-26T14:43:59.677Z warn: Wrong password attempt: bcloudtechnologiesng@gmail.com
+2026-05-26T14:43:59.689Z info: POST /users/login 401 308ms
+2026-05-26T14:43:59.723Z info: ::1 - - [26/May/2026:14:43:59 +0000] "POST /users/login HTTP/1.1" 401 66 "-" "PostmanRuntime/7.54.0"
+2026-05-26T14:45:08.954Z info: Login attempt: bcloudtechnologiesng@gmail.com
+2026-05-26T14:45:12.137Z info: OTP Successful sent to: bcloudtechnologiesng@gmail.com
+2026-05-26T14:45:12.147Z info: POST /users/login 200 3192ms
+2026-05-26T14:45:12.160Z info: ::1 - - [26/May/2026:14:45:12 +0000] "POST /users/login HTTP/1.1" 200 69 "-" "PostmanRuntime/7.54.0"
+2026-05-26T14:46:44.108Z info: POST /users/verify-otp 200 404ms
+2026-05-26T14:46:44.113Z info: ::1 - - [26/May/2026:14:46:44 +0000] "POST /users/verify-otp HTTP/1.1" 200 342 "-" "PostmanRuntime/7.54.0"
+2026-05-26T14:48:12.369Z info: Login attempt: bcloudtechnologiesng@gmail.com
+2026-05-26T14:48:42.388Z error: Login error: getaddrinfo ENOTFOUND ac-uj1kin0-shard-00-00.fx98zxa.mongodb.net
+2026-05-26T14:48:42.392Z info: POST /users/login 500 30024ms
+2026-05-26T14:48:42.394Z info: ::1 - - [26/May/2026:14:48:42 +0000] "POST /users/login HTTP/1.1" 500 152 "-" "PostmanRuntime/7.54.0"
+2026-05-26T14:55:17.468Z info: POST /health 404 7ms
+2026-05-26T14:55:17.475Z info: ::1 - - [26/May/2026:14:55:17 +0000] "POST /health HTTP/1.1" 404 146 "-" "PostmanRuntime/7.54.0"
+2026-05-26T14:55:30.634Z info: GET /health 404 1ms
+2026-05-26T14:55:30.637Z info: ::1 - - [26/May/2026:14:55:30 +0000] "GET /health HTTP/1.1" 404 145 "-" "PostmanRuntime/7.54.0"
+2026-05-26T15:02:16.121Z info: GET /health 200 10ms
+2026-05-26T15:02:16.124Z info: ::1 - - [26/May/2026:15:02:16 +0000] "GET /health HTTP/1.1" 200 46 "-" "PostmanRuntime/7.54.0"
+>>>>>>> 9ccfb08dce300102372d82f6f646c54c880edce8

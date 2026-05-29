@@ -16,7 +16,8 @@ export const verifyOtp = async (req, res) => {
         message: "Invalid OTP",
       });
     }
-    //2. Check if OTP is expired
+
+    // 2. Check expiration
     if (otpRecord.expiresAt < new Date()) {
       return res.status(httpStatus.BAD_REQUEST).json({
         statusCode: httpStatus.BAD_REQUEST,

@@ -1,24 +1,21 @@
 import bcrypt from "bcryptjs";
 import httpStatus from "http-status";
 import User from "../../models/user.js";
+import generateOtp from "../../utils/generateOtp.js";
 import OTP from "../../models/otp.js";
-import generateOtp from "../../utilis/generateOtp.js";
-import sendEmail from "../../utilis/sendEmail.js";
-import logger from "../../utilis/logger.js";
+import sendEmail from "../../utils/sendEmail.js";
+import logger from "../../utils/logger.js";
 //controller for user login
 export const login = async (req, res) => {
   try {
     //1. Get user input
     const { email, password } = req.body;
-
-    //logger info
     logger.info(`Login attempt: ${email}`);
-
     //2. Find user
     const user = await User.findOne({ email });
 
     if (!user) {
-      logger.error(`Login failed for email: ${email}`);
+      logger.error(`User not found: ${email}`);
       return res.status(httpStatus.NOT_FOUND).json({
         statusCode: httpStatus.NOT_FOUND,
         message: "Invalid credentials",
@@ -29,7 +26,6 @@ export const login = async (req, res) => {
     const isPasswordCorrect = await bcrypt.compare(password, user.password);
     if (!isPasswordCorrect) {
       logger.warn(`Wrong password attempt: ${email}`);
-
       return res.status(httpStatus.UNAUTHORIZED).json({
         statusCode: httpStatus.UNAUTHORIZED,
         success: false,
@@ -37,12 +33,11 @@ export const login = async (req, res) => {
       });
     }
 
-    //4. Generate otp
+    //4. Generate OTP
     const otp = generateOtp();
 
     // 5. Delete old OTP if exists
     await OTP.deleteMany({ email });
-
     // 6. Save new OTP
     await OTP.create({
       email,
@@ -53,26 +48,26 @@ export const login = async (req, res) => {
     // 7. Send OTP email
     await sendEmail(
       email,
-      "Wer OTP Code",
+      "Login OTP Code",
       `
-     <div style="font-family: Arial;">
+       <div style="font-family: Arial;">
          <h2>OTP Verification</h2>
-         <p>Wer OTP code is:</p>
+         <p>Your OTP code is:</p>
          <h1>${otp}</h1>
          <p>This OTP expires in 5 minutes.</p>
        </div>
      `,
     );
 
+    logger.info(`OTP Successfully sent to: ${email}`);
     //8. Send response
     res.status(httpStatus.OK).json({
       statusCode: httpStatus.OK,
       success: true,
-      message: "OTP sent to your email",
+      message: "OTP sent to your email!",
     });
   } catch (error) {
     logger.error(`Login error: ${error.message}`);
-
     res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
       statusCode: httpStatus.INTERNAL_SERVER_ERROR,
       success: false,
