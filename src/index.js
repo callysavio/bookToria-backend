@@ -12,7 +12,9 @@ import healthRoute from "./routes/health.js";
 dotenv.config();
 
 const app = express();
+dotenv.config();
 app.use(express.json());
+
 app.use(express.urlencoded({ extended: true }));
 app.use(monitor);
 app.use(
