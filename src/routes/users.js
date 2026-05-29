@@ -1,6 +1,5 @@
 import express from "express";
 const router = express.Router();
-
 import authMiddleware from "../middlewares/auth.js";
 import authorizeRoles from "../middlewares/authorizeRole.js";
 import { registerValidationSchema } from "../validators/auth/register.js";
