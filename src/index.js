@@ -1,24 +1,74 @@
 import express from "express";
+import multer from "multer";
 import dotenv from "dotenv";
+import morgan from "morgan";
+import logger from "./utils/logger.js";
+import monitor from "./middlewares/monitor.js";
 import { connectDB } from "./db/connection.js";
 import userRoutes from "./routes/users.js";
 import blogRoutes from "./routes/blogs.js";
+import analyticsRoutes from "./routes/analytics/blogs.js";
+import healthRoute from "./routes/health.js";
 dotenv.config();
-//create an instance of express server object:
+
 const app = express();
+dotenv.config();
 app.use(express.json());
 
-//use the user routes for handling user-related requests
-app.use("/users", userRoutes);
+app.use(express.urlencoded({ extended: true }));
+app.use(monitor);
+app.use(
+  morgan("combined", {
+    stream: {
+      write: (message) => logger.info(message.trim()),
+    },
+  }),
+);
 
-//use the blog routes for handling blog-related requests
+//Define API routes
+app.use("/users", userRoutes);
 app.use("/blogs", blogRoutes);
-const PORT = process.env.PORT;
+app.use("/analytics", analyticsRoutes);
+app.use(healthRoute);
+
 app.get("/", function (req, res) {
   res.send("Welcome to Book-toria backend!");
 });
+
+// ✅ Global error-handling middleware — MUST be after all routes
+// Catches multer errors and any error passed via next(error)
+app.use((err, req, res, next) => {
+  console.error("GLOBAL ERROR HANDLER:", err);
+
+  // Handle multer-specific errors (file size, unexpected field, etc.)
+  if (err instanceof multer.MulterError) {
+    return res.status(400).json({
+      statusCode: 400,
+      success: false,
+      message:
+        err.code === "LIMIT_FILE_SIZE"
+          ? "File size exceeds the 2MB limit"
+          : err.message,
+    });
+  }
+
+  // Handle custom errors thrown from fileFilter (e.g., wrong file type)
+  if (err) {
+    return res.status(err.status || 500).json({
+      statusCode: err.status || 500,
+      success: false,
+      message:
+        typeof err.message === "string"
+          ? err.message
+          : JSON.stringify(err.message) || "An unexpected error occurred",
+    });
+  }
+
+  next();
+});
+
+const PORT = process.env.PORT;
 app.listen(PORT, function () {
   console.log(`Server running at http://localhost:${PORT}`);
-  //call the connectDB function to connect to MongoDB
   connectDB();
 });
