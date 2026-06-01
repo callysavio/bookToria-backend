@@ -25,9 +25,9 @@ const authMiddleware = (req, res, next) => {
 
     next();
   } catch (error) {
-    return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
-      statusCode: httpStatus.INTERNAL_SERVER_ERROR,
-      message: "An error occurred while verifying Token",
+    return res.status(httpStatus.UNAUTHORIZED).json({
+      statusCode: httpStatus.UNAUTHORIZED,
+      message: "Invalid or expired token",
       error: error.message,
     });
   }

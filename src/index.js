@@ -2,6 +2,7 @@ import express from "express";
 import multer from "multer";
 import dotenv from "dotenv";
 import morgan from "morgan";
+import cors from "cors";
 import logger from "./utils/logger.js";
 import monitor from "./middlewares/monitor.js";
 import { connectDB } from "./db/connection.js";
@@ -12,6 +13,7 @@ import healthRoute from "./routes/health.js";
 dotenv.config();
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));

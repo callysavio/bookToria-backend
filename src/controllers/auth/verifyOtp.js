@@ -30,6 +30,14 @@ export const verifyOtp = async (req, res) => {
     // 3. Find user
     const user = await User.findOne({ email });
 
+    if (!user) {
+      return res.status(httpStatus.NOT_FOUND).json({
+        statusCode: httpStatus.NOT_FOUND,
+        success: false,
+        message: "User not found",
+      });
+    }
+
     // 4. Generate JWT
     const accessToken = jwt.sign(
       {

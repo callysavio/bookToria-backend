@@ -10,12 +10,17 @@ export const register = async (req, res) => {
     //2. Define the user  variable to store the user data
     let user;
     //3. Check if the user already exists in the database
-    const existingUser = await User.findOne({ email });
+    const existingUser = await User.findOne({
+      $or: [{ email }, { username }],
+    });
     if (existingUser) {
       return res.status(httpStatus.CONFLICT).json({
         statusCode: httpStatus.CONFLICT,
         success: false,
-        message: "User already exists with this email",
+        message:
+          existingUser.email === email
+            ? "User already exists with this email"
+            : "Username is already taken",
       });
     }
 
@@ -45,6 +50,17 @@ export const register = async (req, res) => {
     });
     //6. Handle errors
   } catch (error) {
+    if (error?.code === 11000) {
+      return res.status(httpStatus.CONFLICT).json({
+        statusCode: httpStatus.CONFLICT,
+        success: false,
+        message:
+          error?.keyPattern?.username
+            ? "Username is already taken"
+            : "User already exists",
+      });
+    }
+
     // 6. Handle errors
     return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
       statusCode: httpStatus.INTERNAL_SERVER_ERROR,
