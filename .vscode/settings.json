@@ -2,5 +2,6 @@
     "cSpell.words": [
         "booktoria",
         "toria"
-    ]
+    ],
+    "postman.settings.dotenv-detection-notification-visibility": false
 }
