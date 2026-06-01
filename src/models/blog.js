@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-// Define the Blog schema
+// Define the User schema
 const blogSchema = new mongoose.Schema(
   {
     blogImage: {
@@ -38,10 +38,9 @@ const blogSchema = new mongoose.Schema(
       ref: "User",
     },
   },
-  {
-    timestamps: true,
-  },
+    { timestamps: true },
 );
-// Create the Blog model
+
 const Blog = mongoose.model("Blog", blogSchema);
+
 export default Blog;
