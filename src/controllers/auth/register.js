@@ -1,6 +1,7 @@
 import httpStatus from "http-status";
 import User from "../../models/user.js";
 import bcrypt from "bcryptjs";
+import { encryptData, decryptData } from "../../utils/encrypt.js";
 //controller for user registration
 export const register = async (req, res) => {
   try {
@@ -27,15 +28,18 @@ export const register = async (req, res) => {
     // Hash the password before saving to the database
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
-
+    const encryptedUsername = encryptData(username);
     //4. Create a new user
     user = await User.create({
-      username,
+      username: {
+        encryptedData: encryptedUsername.encryptedData,
+        iv: encryptedUsername.iv,
+      },
       email,
       password: hashedPassword,
       role,
     });
-    //5. Return a success response with the created user data
+
     return res.status(httpStatus.CREATED).json({
       statusCode: httpStatus.CREATED,
       success: true,
@@ -43,7 +47,7 @@ export const register = async (req, res) => {
       data: {
         id: user._id,
         profilePicture: user.profilePicture,
-        username: user.username,
+        username: decryptData(user.username), // decrypt before sending back
         email: user.email,
         role: user.role,
       },

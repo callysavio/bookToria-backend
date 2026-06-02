@@ -10,14 +10,25 @@ import userRoutes from "./routes/users.js";
 import blogRoutes from "./routes/blogs.js";
 import analyticsRoutes from "./routes/analytics/blogs.js";
 import healthRoute from "./routes/health.js";
+
 dotenv.config();
 
 const app = express();
-app.use(cors());
-app.use(express.json());
 
+// ✅ Configure CORS middleware before your routes
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  }),
+);
+
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(monitor);
+
 app.use(
   morgan("combined", {
     stream: {
@@ -26,7 +37,7 @@ app.use(
   }),
 );
 
-//Define API routes
+// Define API routes
 app.use("/users", userRoutes);
 app.use("/blogs", blogRoutes);
 app.use("/analytics", analyticsRoutes);
@@ -36,8 +47,7 @@ app.get("/", function (req, res) {
   res.send("Welcome to Book-toria backend!");
 });
 
-// Global error-handling middleware. Must be after all routes.
-// Catches multer errors and any error passed via next(error)
+// ✅ Global error-handling middleware — MUST be after all routes
 app.use((err, req, res, next) => {
   console.error("GLOBAL ERROR HANDLER:", err);
 
@@ -71,7 +81,7 @@ app.use((err, req, res, next) => {
   next();
 });
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5001; // Fallback to 5001 if env file isn't loaded yet
 app.listen(PORT, function () {
   console.log(`Server running at http://localhost:${PORT}`);
   connectDB();
