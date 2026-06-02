@@ -25,3 +25,443 @@
 2026-05-26T14:55:30.637Z info: ::1 - - [26/May/2026:14:55:30 +0000] "GET /health HTTP/1.1" 404 145 "-" "PostmanRuntime/7.54.0"
 2026-05-26T15:02:16.121Z info: GET /health 200 10ms
 2026-05-26T15:02:16.124Z info: ::1 - - [26/May/2026:15:02:16 +0000] "GET /health HTTP/1.1" 200 46 "-" "PostmanRuntime/7.54.0"
+2026-05-29T14:28:20.675Z info: Login attempt: bcloudtechnologiesng@gmail.com
+2026-05-29T14:28:26.253Z info: OTP Successfully sent to: bcloudtechnologiesng@gmail.com
+2026-05-29T14:28:26.310Z info: POST /users/login 200 5671ms
+2026-05-29T14:28:26.368Z info: ::1 - - [29/May/2026:14:28:26 +0000] "POST /users/login HTTP/1.1" 200 69 "-" "PostmanRuntime/7.54.0"
+2026-05-29T14:29:24.298Z info: POST /users/verify-otp 200 680ms
+2026-05-29T14:29:24.398Z info: ::1 - - [29/May/2026:14:29:24 +0000] "POST /users/verify-otp HTTP/1.1" 200 342 "-" "PostmanRuntime/7.54.0"
+2026-05-29T15:22:05.518Z info: POST /users/register 409 415ms
+2026-05-29T15:22:05.550Z info: ::1 - - [29/May/2026:15:22:05 +0000] "POST /users/register HTTP/1.1" 409 82 "-" "PostmanRuntime/7.54.0"
+2026-05-29T15:24:06.107Z info: POST /users/register 201 419ms
+2026-05-29T15:24:06.109Z info: ::1 - - [29/May/2026:15:24:06 +0000] "POST /users/register HTTP/1.1" 201 273 "-" "PostmanRuntime/7.54.0"
+2026-05-29T15:25:45.914Z info: POST /users/register 500 426ms
+2026-05-29T15:25:45.916Z info: ::1 - - [29/May/2026:15:25:45 +0000] "POST /users/register HTTP/1.1" 500 207 "-" "PostmanRuntime/7.54.0"
+2026-05-29T15:25:53.987Z info: POST /users/register 201 368ms
+2026-05-29T15:25:53.990Z info: ::1 - - [29/May/2026:15:25:53 +0000] "POST /users/register HTTP/1.1" 201 275 "-" "PostmanRuntime/7.54.0"
+2026-05-29T15:31:50.343Z info: POST /users/register 201 467ms
+2026-05-29T15:31:50.350Z info: ::1 - - [29/May/2026:15:31:50 +0000] "POST /users/register HTTP/1.1" 201 277 "-" "PostmanRuntime/7.54.0"
+2026-05-29T15:46:38.204Z info: POST /users/register 201 493ms
+2026-05-29T15:46:38.207Z info: ::1 - - [29/May/2026:15:46:38 +0000] "POST /users/register HTTP/1.1" 201 269 "-" "PostmanRuntime/7.54.0"
+2026-06-01T14:01:53.416Z info: OPTIONS /blogs/fetch 200 189ms
+2026-06-01T14:01:53.495Z info: ::1 - - [01/Jun/2026:14:01:53 +0000] "OPTIONS /blogs/fetch HTTP/1.1" 200 9 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:20:48.091Z info: POST /users/register 201 1708ms
+2026-06-01T14:20:48.099Z info: ::1 - - [01/Jun/2026:14:20:48 +0000] "POST /users/register HTTP/1.1" 201 274 "-" "PostmanRuntime/7.54.0"
+2026-06-01T14:26:12.681Z info: OPTIONS /users/register 200 9ms
+2026-06-01T14:26:12.687Z info: ::1 - - [01/Jun/2026:14:26:12 +0000] "OPTIONS /users/register HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T14:27:07.217Z info: OPTIONS /users/register 200 2ms
+2026-06-01T14:27:07.224Z info: ::1 - - [01/Jun/2026:14:27:07 +0000] "OPTIONS /users/register HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:28:42.112Z info: OPTIONS /users/register 200 3ms
+2026-06-01T14:28:42.139Z info: ::1 - - [01/Jun/2026:14:28:42 +0000] "OPTIONS /users/register HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:30:43.793Z info: OPTIONS /users/register 200 3ms
+2026-06-01T14:30:43.803Z info: ::1 - - [01/Jun/2026:14:30:43 +0000] "OPTIONS /users/register HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:30:48.675Z info: OPTIONS /users/register 200 28ms
+2026-06-01T14:30:48.687Z info: ::1 - - [01/Jun/2026:14:30:48 +0000] "OPTIONS /users/register HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:30:50.377Z info: OPTIONS /users/register 200 1ms
+2026-06-01T14:30:50.385Z info: ::1 - - [01/Jun/2026:14:30:50 +0000] "OPTIONS /users/register HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:32:40.959Z info: OPTIONS /users/register 200 1ms
+2026-06-01T14:32:40.989Z info: ::1 - - [01/Jun/2026:14:32:40 +0000] "OPTIONS /users/register HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:33:34.184Z info: OPTIONS /users/login 200 3ms
+2026-06-01T14:33:34.188Z info: ::1 - - [01/Jun/2026:14:33:34 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:33:45.409Z info: OPTIONS /users/login 200 2ms
+2026-06-01T14:33:45.417Z info: ::1 - - [01/Jun/2026:14:33:45 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:37:04.042Z info: OPTIONS /users/register 200 16ms
+2026-06-01T14:37:04.056Z info: ::1 - - [01/Jun/2026:14:37:04 +0000] "OPTIONS /users/register HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:38:24.851Z info: OPTIONS /users/register 200 2ms
+2026-06-01T14:38:24.861Z info: ::1 - - [01/Jun/2026:14:38:24 +0000] "OPTIONS /users/register HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:38:26.630Z info: OPTIONS /users/register 200 3ms
+2026-06-01T14:38:26.630Z info: ::1 - - [01/Jun/2026:14:38:26 +0000] "OPTIONS /users/register HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:39:07.877Z info: OPTIONS /users/register 200 0ms
+2026-06-01T14:39:07.891Z info: ::1 - - [01/Jun/2026:14:39:07 +0000] "OPTIONS /users/register HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:44:05.712Z info: OPTIONS /users/register 200 0ms
+2026-06-01T14:44:05.721Z info: ::1 - - [01/Jun/2026:14:44:05 +0000] "OPTIONS /users/register HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:47:01.201Z info: OPTIONS /users/register 200 1ms
+2026-06-01T14:47:01.337Z info: ::1 - - [01/Jun/2026:14:47:01 +0000] "OPTIONS /users/register HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:47:05.271Z info: OPTIONS /users/register 200 19ms
+2026-06-01T14:47:05.272Z info: ::1 - - [01/Jun/2026:14:47:05 +0000] "OPTIONS /users/register HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:47:07.104Z info: OPTIONS /users/register 200 1ms
+2026-06-01T14:47:07.120Z info: ::1 - - [01/Jun/2026:14:47:07 +0000] "OPTIONS /users/register HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:47:11.891Z info: OPTIONS /users/register 200 2ms
+2026-06-01T14:47:11.893Z info: ::1 - - [01/Jun/2026:14:47:11 +0000] "OPTIONS /users/register HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:05.724Z info: OPTIONS /users/register 200 1ms
+2026-06-01T14:48:05.757Z info: ::1 - - [01/Jun/2026:14:48:05 +0000] "OPTIONS /users/register HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:24.583Z info: OPTIONS /users/login 200 1ms
+2026-06-01T14:48:24.599Z info: ::1 - - [01/Jun/2026:14:48:24 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:27.600Z info: OPTIONS /users/login 200 0ms
+2026-06-01T14:48:27.602Z info: ::1 - - [01/Jun/2026:14:48:27 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:29.439Z info: OPTIONS /users/login 200 1ms
+2026-06-01T14:48:29.440Z info: ::1 - - [01/Jun/2026:14:48:29 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:31.182Z info: OPTIONS /users/login 200 1ms
+2026-06-01T14:48:31.183Z info: ::1 - - [01/Jun/2026:14:48:31 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:31.411Z info: OPTIONS /users/login 200 1ms
+2026-06-01T14:48:31.420Z info: ::1 - - [01/Jun/2026:14:48:31 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:31.858Z info: OPTIONS /users/login 200 0ms
+2026-06-01T14:48:31.875Z info: ::1 - - [01/Jun/2026:14:48:31 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:33.058Z info: OPTIONS /users/login 200 1ms
+2026-06-01T14:48:33.068Z info: ::1 - - [01/Jun/2026:14:48:33 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:33.247Z info: OPTIONS /users/login 200 1ms
+2026-06-01T14:48:33.249Z info: ::1 - - [01/Jun/2026:14:48:33 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:33.412Z info: OPTIONS /users/login 200 0ms
+2026-06-01T14:48:33.413Z info: ::1 - - [01/Jun/2026:14:48:33 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:33.748Z info: OPTIONS /users/login 200 1ms
+2026-06-01T14:48:33.754Z info: ::1 - - [01/Jun/2026:14:48:33 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:33.925Z info: OPTIONS /users/login 200 1ms
+2026-06-01T14:48:33.925Z info: ::1 - - [01/Jun/2026:14:48:33 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:35.059Z info: OPTIONS /users/login 200 2ms
+2026-06-01T14:48:35.060Z info: ::1 - - [01/Jun/2026:14:48:35 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:35.291Z info: OPTIONS /users/login 200 1ms
+2026-06-01T14:48:35.298Z info: ::1 - - [01/Jun/2026:14:48:35 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:37.340Z info: OPTIONS /users/login 200 1ms
+2026-06-01T14:48:37.340Z info: ::1 - - [01/Jun/2026:14:48:37 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:37.496Z info: OPTIONS /users/login 200 1ms
+2026-06-01T14:48:37.497Z info: ::1 - - [01/Jun/2026:14:48:37 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:37.666Z info: OPTIONS /users/login 200 0ms
+2026-06-01T14:48:37.678Z info: ::1 - - [01/Jun/2026:14:48:37 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:37.836Z info: OPTIONS /users/login 200 0ms
+2026-06-01T14:48:37.840Z info: ::1 - - [01/Jun/2026:14:48:37 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:38.032Z info: OPTIONS /users/login 200 2ms
+2026-06-01T14:48:38.039Z info: ::1 - - [01/Jun/2026:14:48:38 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:38.199Z info: OPTIONS /users/login 200 1ms
+2026-06-01T14:48:38.199Z info: ::1 - - [01/Jun/2026:14:48:38 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:38.423Z info: OPTIONS /users/login 200 0ms
+2026-06-01T14:48:38.424Z info: ::1 - - [01/Jun/2026:14:48:38 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:39.533Z info: OPTIONS /users/login 200 1ms
+2026-06-01T14:48:39.534Z info: ::1 - - [01/Jun/2026:14:48:39 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:39.739Z info: OPTIONS /users/login 200 1ms
+2026-06-01T14:48:39.739Z info: ::1 - - [01/Jun/2026:14:48:39 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:39.908Z info: OPTIONS /users/login 200 1ms
+2026-06-01T14:48:39.925Z info: ::1 - - [01/Jun/2026:14:48:39 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:40.114Z info: OPTIONS /users/login 200 1ms
+2026-06-01T14:48:40.115Z info: ::1 - - [01/Jun/2026:14:48:40 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:40.337Z info: OPTIONS /users/login 200 1ms
+2026-06-01T14:48:40.340Z info: ::1 - - [01/Jun/2026:14:48:40 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:42.780Z info: OPTIONS /users/login 200 1ms
+2026-06-01T14:48:42.780Z info: ::1 - - [01/Jun/2026:14:48:42 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:48:47.353Z info: OPTIONS /users/login 200 4ms
+2026-06-01T14:48:47.355Z info: ::1 - - [01/Jun/2026:14:48:47 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T14:48:47.852Z info: OPTIONS /users/login 200 1ms
+2026-06-01T14:48:47.854Z info: ::1 - - [01/Jun/2026:14:48:47 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T14:48:48.081Z info: OPTIONS /users/login 200 1ms
+2026-06-01T14:48:48.081Z info: ::1 - - [01/Jun/2026:14:48:48 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T14:48:48.272Z info: OPTIONS /users/login 200 0ms
+2026-06-01T14:48:48.272Z info: ::1 - - [01/Jun/2026:14:48:48 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T14:49:06.440Z info: OPTIONS /users/login 200 2ms
+2026-06-01T14:49:06.451Z info: ::1 - - [01/Jun/2026:14:49:06 +0000] "OPTIONS /users/login HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T14:51:11.190Z info: OPTIONS /users/register 200 19ms
+2026-06-01T14:51:11.210Z info: ::1 - - [01/Jun/2026:14:51:11 +0000] "OPTIONS /users/register HTTP/1.1" 200 4 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T15:04:34.541Z info: POST /users/register 201 469ms
+2026-06-01T15:04:34.546Z info: ::1 - - [01/Jun/2026:15:04:34 +0000] "POST /users/register HTTP/1.1" 201 265 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T15:05:22.983Z info: Login attempt: callistusanwara@gmail.com
+2026-06-01T15:05:24.863Z info: Login attempt: callistusanwara@gmail.com
+2026-06-01T15:05:26.893Z info: OTP Successfully sent to: callistusanwara@gmail.com
+2026-06-01T15:05:26.896Z info: POST /users/login 200 3913ms
+2026-06-01T15:05:26.896Z info: ::1 - - [01/Jun/2026:15:05:26 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T15:05:28.238Z info: OTP Successfully sent to: callistusanwara@gmail.com
+2026-06-01T15:05:28.250Z info: POST /users/login 200 3388ms
+2026-06-01T15:05:28.262Z info: ::1 - - [01/Jun/2026:15:05:28 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T15:12:22.404Z info: Login attempt: callistusanwara@gmail.com
+2026-06-01T15:12:22.755Z warn: Wrong password attempt: callistusanwara@gmail.com
+2026-06-01T15:12:22.772Z info: POST /users/login 401 371ms
+2026-06-01T15:12:22.773Z info: ::1 - - [01/Jun/2026:15:12:22 +0000] "POST /users/login HTTP/1.1" 401 66 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:12:24.472Z info: Login attempt: callistusanwara@gmail.com
+2026-06-01T15:12:24.737Z warn: Wrong password attempt: callistusanwara@gmail.com
+2026-06-01T15:12:24.739Z info: POST /users/login 401 268ms
+2026-06-01T15:12:24.739Z info: ::1 - - [01/Jun/2026:15:12:24 +0000] "POST /users/login HTTP/1.1" 401 66 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:12:24.940Z info: Login attempt: callistusanwara@gmail.com
+2026-06-01T15:12:25.212Z warn: Wrong password attempt: callistusanwara@gmail.com
+2026-06-01T15:12:25.213Z info: POST /users/login 401 273ms
+2026-06-01T15:12:25.214Z info: ::1 - - [01/Jun/2026:15:12:25 +0000] "POST /users/login HTTP/1.1" 401 66 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:12:25.218Z info: Login attempt: callistusanwara@gmail.com
+2026-06-01T15:12:25.456Z warn: Wrong password attempt: callistusanwara@gmail.com
+2026-06-01T15:12:25.457Z info: POST /users/login 401 239ms
+2026-06-01T15:12:25.458Z info: ::1 - - [01/Jun/2026:15:12:25 +0000] "POST /users/login HTTP/1.1" 401 66 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:12:25.515Z info: Login attempt: callistusanwara@gmail.com
+2026-06-01T15:12:25.764Z info: Login attempt: callistusanwara@gmail.com
+2026-06-01T15:12:25.766Z warn: Wrong password attempt: callistusanwara@gmail.com
+2026-06-01T15:12:25.767Z info: POST /users/login 401 252ms
+2026-06-01T15:12:25.769Z info: ::1 - - [01/Jun/2026:15:12:25 +0000] "POST /users/login HTTP/1.1" 401 66 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:12:25.896Z info: Login attempt: callistusanwara@gmail.com
+2026-06-01T15:12:26.011Z warn: Wrong password attempt: callistusanwara@gmail.com
+2026-06-01T15:12:26.013Z info: POST /users/login 401 249ms
+2026-06-01T15:12:26.014Z info: ::1 - - [01/Jun/2026:15:12:26 +0000] "POST /users/login HTTP/1.1" 401 66 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:12:26.133Z warn: Wrong password attempt: callistusanwara@gmail.com
+2026-06-01T15:12:26.134Z info: POST /users/login 401 238ms
+2026-06-01T15:12:26.140Z info: ::1 - - [01/Jun/2026:15:12:26 +0000] "POST /users/login HTTP/1.1" 401 66 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:18:48.795Z info: Login attempt: callistus@gmail.com
+2026-06-01T15:18:48.954Z error: User not found: callistus@gmail.com
+2026-06-01T15:18:48.959Z info: POST /users/login 404 168ms
+2026-06-01T15:18:48.960Z info: ::1 - - [01/Jun/2026:15:18:48 +0000] "POST /users/login HTTP/1.1" 404 50 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:26:27.977Z info: Login attempt: callistus@gmail.com
+2026-06-01T15:26:28.172Z error: User not found: callistus@gmail.com
+2026-06-01T15:26:28.191Z info: POST /users/login 404 232ms
+2026-06-01T15:26:28.196Z info: ::1 - - [01/Jun/2026:15:26:28 +0000] "POST /users/login HTTP/1.1" 404 50 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:27:41.387Z info: Login attempt: callistus@gmail.com
+2026-06-01T15:27:41.520Z error: User not found: callistus@gmail.com
+2026-06-01T15:27:41.521Z info: POST /users/login 404 136ms
+2026-06-01T15:27:41.522Z info: ::1 - - [01/Jun/2026:15:27:41 +0000] "POST /users/login HTTP/1.1" 404 50 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:29:55.651Z info: Login attempt: callistusanwara@gmail.com
+2026-06-01T15:29:58.670Z info: Login attempt: callistusanwara@gmail.com
+2026-06-01T15:29:59.410Z info: OTP Successfully sent to: callistusanwara@gmail.com
+2026-06-01T15:29:59.413Z info: POST /users/login 200 3762ms
+2026-06-01T15:29:59.414Z info: ::1 - - [01/Jun/2026:15:29:59 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:30:02.065Z info: OTP Successfully sent to: callistusanwara@gmail.com
+2026-06-01T15:30:02.066Z info: POST /users/login 200 3396ms
+2026-06-01T15:30:02.066Z info: ::1 - - [01/Jun/2026:15:30:02 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:30:51.482Z info: Login attempt: callistusanwara@gmail.com
+2026-06-01T15:30:54.810Z info: OTP Successfully sent to: callistusanwara@gmail.com
+2026-06-01T15:30:54.814Z info: POST /users/login 200 3332ms
+2026-06-01T15:30:54.814Z info: ::1 - - [01/Jun/2026:15:30:54 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T15:31:58.855Z info: Login attempt: callistusanwara@gmail.com
+2026-06-01T15:32:02.059Z info: Login attempt: callistusanwara@gmail.com
+2026-06-01T15:32:02.312Z info: OTP Successfully sent to: callistusanwara@gmail.com
+2026-06-01T15:32:02.314Z info: POST /users/login 200 3459ms
+2026-06-01T15:32:02.316Z info: ::1 - - [01/Jun/2026:15:32:02 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T15:32:05.346Z info: OTP Successfully sent to: callistusanwara@gmail.com
+2026-06-01T15:32:05.356Z info: POST /users/login 200 3296ms
+2026-06-01T15:32:05.358Z info: ::1 - - [01/Jun/2026:15:32:05 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T15:32:47.649Z info: Login attempt: callistusanwara@gmail.com
+2026-06-01T15:32:51.179Z info: OTP Successfully sent to: callistusanwara@gmail.com
+2026-06-01T15:32:51.180Z info: POST /users/login 200 3531ms
+2026-06-01T15:32:51.180Z info: ::1 - - [01/Jun/2026:15:32:51 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-01T15:32:51.233Z info: Login attempt: callistusanwara@gmail.com
+2026-06-01T15:32:54.692Z info: OTP Successfully sent to: callistusanwara@gmail.com
+2026-06-01T15:32:54.694Z info: POST /users/login 200 3461ms
+2026-06-01T15:32:54.696Z info: ::1 - - [01/Jun/2026:15:32:54 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T12:48:10.575Z info: GET /blogs/fetch 200 141ms
+2026-06-02T12:48:10.579Z info: ::1 - - [02/Jun/2026:12:48:10 +0000] "GET /blogs/fetch HTTP/1.1" 200 1034 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T12:48:26.929Z info: GET /blogs/details/6a0736cfb620d33566bc9fb5 200 129ms
+2026-06-02T12:48:26.932Z info: ::1 - - [02/Jun/2026:12:48:26 +0000] "GET /blogs/details/6a0736cfb620d33566bc9fb5 HTTP/1.1" 200 507 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T12:50:25.549Z info: GET /blogs/fetch 304 115ms
+2026-06-02T12:50:25.550Z info: ::1 - - [02/Jun/2026:12:50:25 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T12:58:48.632Z info: GET /blogs/fetch 304 174ms
+2026-06-02T12:58:48.638Z info: ::1 - - [02/Jun/2026:12:58:48 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:00:55.526Z info: GET /blogs/fetch 304 118ms
+2026-06-02T13:00:55.527Z info: ::1 - - [02/Jun/2026:13:00:55 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:01:05.873Z info: POST /blogs/create 404 4ms
+2026-06-02T13:01:05.874Z info: ::1 - - [02/Jun/2026:13:01:05 +0000] "POST /blogs/create HTTP/1.1" 404 48 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:01:28.946Z info: GET /blogs/fetch 304 129ms
+2026-06-02T13:01:28.951Z info: ::1 - - [02/Jun/2026:13:01:28 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:02:24.876Z info: GET /blogs/fetch 304 130ms
+2026-06-02T13:02:24.886Z info: ::1 - - [02/Jun/2026:13:02:24 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:06:56.691Z info: GET /blogs/fetch 304 122ms
+2026-06-02T13:06:56.693Z info: ::1 - - [02/Jun/2026:13:06:56 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:08:12.826Z info: GET /blogs/fetch 304 142ms
+2026-06-02T13:08:12.827Z info: ::1 - - [02/Jun/2026:13:08:12 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:09:13.431Z info: GET /blogs/fetch 304 125ms
+2026-06-02T13:09:13.434Z info: ::1 - - [02/Jun/2026:13:09:13 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:09:18.095Z info: GET /blogs/details/6a0f233237379fe63dda3bba 200 133ms
+2026-06-02T13:09:18.099Z info: ::1 - - [02/Jun/2026:13:09:18 +0000] "GET /blogs/details/6a0f233237379fe63dda3bba HTTP/1.1" 200 555 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:09:39.351Z info: POST /blogs/create 404 2ms
+2026-06-02T13:09:39.351Z info: ::1 - - [02/Jun/2026:13:09:39 +0000] "POST /blogs/create HTTP/1.1" 404 48 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:17:21.545Z info: GET /blogs/fetch 304 200ms
+2026-06-02T13:17:21.547Z info: ::1 - - [02/Jun/2026:13:17:21 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:19:01.956Z info: GET /blogs/fetch 304 130ms
+2026-06-02T13:19:01.975Z info: ::1 - - [02/Jun/2026:13:19:01 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:19:15.608Z info: GET /blogs/fetch 304 126ms
+2026-06-02T13:19:15.617Z info: ::1 - - [02/Jun/2026:13:19:15 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:22:02.268Z info: GET /blogs/details/69f8a30049c6a288c2fdfc3c 200 136ms
+2026-06-02T13:22:02.269Z info: ::1 - - [02/Jun/2026:13:22:02 +0000] "GET /blogs/details/69f8a30049c6a288c2fdfc3c HTTP/1.1" 200 543 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:23:25.261Z info: GET /blogs/details/69f8a30049c6a288c2fdfc3c 304 117ms
+2026-06-02T13:23:25.261Z info: ::1 - - [02/Jun/2026:13:23:25 +0000] "GET /blogs/details/69f8a30049c6a288c2fdfc3c HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:23:43.653Z info: GET /blogs/details/69f8a30049c6a288c2fdfc3c 304 115ms
+2026-06-02T13:23:43.653Z info: ::1 - - [02/Jun/2026:13:23:43 +0000] "GET /blogs/details/69f8a30049c6a288c2fdfc3c HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:23:58.720Z info: GET /blogs/details/69f8a30049c6a288c2fdfc3c 304 146ms
+2026-06-02T13:23:58.721Z info: ::1 - - [02/Jun/2026:13:23:58 +0000] "GET /blogs/details/69f8a30049c6a288c2fdfc3c HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:24:08.286Z info: GET /blogs/fetch 304 132ms
+2026-06-02T13:24:08.286Z info: ::1 - - [02/Jun/2026:13:24:08 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:24:11.002Z info: GET /blogs/details/6a0f233237379fe63dda3bba 304 135ms
+2026-06-02T13:24:11.003Z info: ::1 - - [02/Jun/2026:13:24:11 +0000] "GET /blogs/details/6a0f233237379fe63dda3bba HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:24:17.755Z info: GET /blogs/fetch 304 120ms
+2026-06-02T13:24:17.755Z info: ::1 - - [02/Jun/2026:13:24:17 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:24:22.197Z info: GET /blogs/details/69ef78d0935106e4713c8719 200 115ms
+2026-06-02T13:24:22.197Z info: ::1 - - [02/Jun/2026:13:24:22 +0000] "GET /blogs/details/69ef78d0935106e4713c8719 HTTP/1.1" 200 529 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:24:26.220Z info: GET /blogs/fetch 304 116ms
+2026-06-02T13:24:26.220Z info: ::1 - - [02/Jun/2026:13:24:26 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:24:29.791Z info: GET /blogs/details/69f8a30049c6a288c2fdfc3c 304 124ms
+2026-06-02T13:24:29.802Z info: ::1 - - [02/Jun/2026:13:24:29 +0000] "GET /blogs/details/69f8a30049c6a288c2fdfc3c HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:29:12.786Z info: GET /blogs/fetch 304 363ms
+2026-06-02T13:29:12.797Z info: ::1 - - [02/Jun/2026:13:29:12 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:32:48.657Z info: GET /blogs/fetch 304 121ms
+2026-06-02T13:32:48.661Z info: ::1 - - [02/Jun/2026:13:32:48 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:40:43.031Z info: GET /blogs/details/69f8a30049c6a288c2fdfc3c 304 167ms
+2026-06-02T13:40:43.039Z info: ::1 - - [02/Jun/2026:13:40:43 +0000] "GET /blogs/details/69f8a30049c6a288c2fdfc3c HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:43:48.428Z info: GET /blogs/fetch 304 131ms
+2026-06-02T13:43:48.501Z info: ::1 - - [02/Jun/2026:13:43:48 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:44:26.503Z info: GET /blogs/fetch 304 131ms
+2026-06-02T13:44:26.523Z info: ::1 - - [02/Jun/2026:13:44:26 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:44:26.655Z info: GET /blogs/fetch 304 121ms
+2026-06-02T13:44:26.665Z info: ::1 - - [02/Jun/2026:13:44:26 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:44:36.435Z info: GET /blogs/fetch 304 123ms
+2026-06-02T13:44:36.500Z info: ::1 - - [02/Jun/2026:13:44:36 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:45:31.594Z info: GET /blogs/fetch 304 166ms
+2026-06-02T13:45:31.606Z info: ::1 - - [02/Jun/2026:13:45:31 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:46:44.049Z info: GET /blogs/fetch 304 141ms
+2026-06-02T13:46:44.051Z info: ::1 - - [02/Jun/2026:13:46:44 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:46:44.207Z info: GET /blogs/fetch 304 153ms
+2026-06-02T13:46:44.243Z info: ::1 - - [02/Jun/2026:13:46:44 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:46:44.460Z info: GET /blogs/fetch 304 137ms
+2026-06-02T13:46:44.579Z info: ::1 - - [02/Jun/2026:13:46:44 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:46:56.746Z info: GET /blogs/details/6a0f257337379fe63dda3bbb 200 162ms
+2026-06-02T13:46:56.755Z info: ::1 - - [02/Jun/2026:13:46:56 +0000] "GET /blogs/details/6a0f257337379fe63dda3bbb HTTP/1.1" 200 565 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:47:03.890Z info: GET /blogs/fetch 304 135ms
+2026-06-02T13:47:03.910Z info: ::1 - - [02/Jun/2026:13:47:03 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:47:06.569Z info: GET /blogs/details/6a0f233237379fe63dda3bba 304 158ms
+2026-06-02T13:47:06.576Z info: ::1 - - [02/Jun/2026:13:47:06 +0000] "GET /blogs/details/6a0f233237379fe63dda3bba HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:47:10.885Z info: GET /blogs/fetch 304 133ms
+2026-06-02T13:47:10.896Z info: ::1 - - [02/Jun/2026:13:47:10 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T13:47:14.054Z info: GET /blogs/details/69ef78d0935106e4713c8719 304 148ms
+2026-06-02T13:47:14.059Z info: ::1 - - [02/Jun/2026:13:47:14 +0000] "GET /blogs/details/69ef78d0935106e4713c8719 HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:01:46.173Z info: Login attempt: callistusanwara@gmail.com
+2026-06-02T14:01:50.884Z info: OTP Successfully sent to: callistusanwara@gmail.com
+2026-06-02T14:01:50.887Z info: POST /users/login 200 4719ms
+2026-06-02T14:01:50.891Z info: ::1 - - [02/Jun/2026:14:01:50 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:02:20.159Z info: Login attempt: callistusanwara@gmail.com
+2026-06-02T14:02:23.974Z info: OTP Successfully sent to: callistusanwara@gmail.com
+2026-06-02T14:02:23.978Z info: POST /users/login 200 3820ms
+2026-06-02T14:02:23.981Z info: ::1 - - [02/Jun/2026:14:02:23 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T14:03:32.779Z info: Login attempt: callistusanwara@gmail.com
+2026-06-02T14:03:34.604Z info: Login attempt: callistusanwara@gmail.com
+2026-06-02T14:03:36.249Z info: OTP Successfully sent to: callistusanwara@gmail.com
+2026-06-02T14:03:36.262Z info: POST /users/login 200 3483ms
+2026-06-02T14:03:36.362Z info: ::1 - - [02/Jun/2026:14:03:36 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T14:03:37.985Z info: OTP Successfully sent to: callistusanwara@gmail.com
+2026-06-02T14:03:37.988Z info: POST /users/login 200 3385ms
+2026-06-02T14:03:37.993Z info: ::1 - - [02/Jun/2026:14:03:37 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T14:04:09.604Z info: Login attempt: callistusanwara@gmail.com
+2026-06-02T14:04:12.897Z info: OTP Successfully sent to: callistusanwara@gmail.com
+2026-06-02T14:04:12.913Z info: POST /users/login 200 3310ms
+2026-06-02T14:04:12.930Z info: ::1 - - [02/Jun/2026:14:04:12 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:08:43.412Z info: Login attempt: bcloudtechnologiesng@gmail.com
+2026-06-02T14:08:46.713Z info: OTP Successfully sent to: bcloudtechnologiesng@gmail.com
+2026-06-02T14:08:46.719Z info: POST /users/login 200 3309ms
+2026-06-02T14:08:46.786Z info: ::1 - - [02/Jun/2026:14:08:46 +0000] "POST /users/login HTTP/1.1" 200 69 "-" "PostmanRuntime/7.54.0"
+2026-06-02T14:19:46.709Z info: Login attempt: callistusanwara@gmail.com
+2026-06-02T14:19:51.061Z info: OTP Successfully sent to: callistusanwara@gmail.com
+2026-06-02T14:19:51.066Z info: POST /users/login 200 4359ms
+2026-06-02T14:19:51.068Z info: ::1 - - [02/Jun/2026:14:19:51 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:21:37.904Z info: Login attempt: bcloudtechnologiesng@gmail.com
+2026-06-02T14:21:41.253Z info: OTP Successfully sent to: bcloudtechnologiesng@gmail.com
+2026-06-02T14:21:41.256Z info: POST /users/login 200 3351ms
+2026-06-02T14:21:41.257Z info: ::1 - - [02/Jun/2026:14:21:41 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:22:44.312Z info: Login attempt: bcloudtechnologiesng@gmail.com
+2026-06-02T14:22:47.087Z info: OTP Successfully sent to: bcloudtechnologiesng@gmail.com
+2026-06-02T14:22:47.090Z info: POST /users/login 200 2778ms
+2026-06-02T14:22:47.093Z info: ::1 - - [02/Jun/2026:14:22:47 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T14:26:40.869Z info: Login attempt: bcloudtechnologiesng@gmail.com
+2026-06-02T14:26:43.904Z info: OTP Successfully sent to: bcloudtechnologiesng@gmail.com
+2026-06-02T14:26:43.906Z info: POST /users/login 200 3039ms
+2026-06-02T14:26:43.907Z info: ::1 - - [02/Jun/2026:14:26:43 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T14:28:07.178Z info: Login attempt: callistusanwara@gmail.com
+2026-06-02T14:28:10.227Z info: OTP Successfully sent to: callistusanwara@gmail.com
+2026-06-02T14:28:10.236Z info: POST /users/login 200 3059ms
+2026-06-02T14:28:10.255Z info: ::1 - - [02/Jun/2026:14:28:10 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:31:34.769Z info: POST /users/verify-otp 200 564ms
+2026-06-02T14:31:34.775Z info: ::1 - - [02/Jun/2026:14:31:34 +0000] "POST /users/verify-otp HTTP/1.1" 200 336 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:31:52.228Z info: Login attempt: callistusanwara@gmail.com
+2026-06-02T14:31:56.753Z info: OTP Successfully sent to: callistusanwara@gmail.com
+2026-06-02T14:31:56.755Z info: POST /users/login 200 4534ms
+2026-06-02T14:31:56.757Z info: ::1 - - [02/Jun/2026:14:31:56 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:32:18.670Z info: POST /users/verify-otp 200 520ms
+2026-06-02T14:32:18.672Z info: ::1 - - [02/Jun/2026:14:32:18 +0000] "POST /users/verify-otp HTTP/1.1" 200 336 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:32:51.769Z info: Login attempt: bcloudtechnologiesng@gmail.com
+2026-06-02T14:32:56.259Z info: OTP Successfully sent to: bcloudtechnologiesng@gmail.com
+2026-06-02T14:32:56.261Z info: POST /users/login 200 4492ms
+2026-06-02T14:32:56.262Z info: ::1 - - [02/Jun/2026:14:32:56 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:33:20.678Z info: POST /users/verify-otp 200 475ms
+2026-06-02T14:33:20.679Z info: ::1 - - [02/Jun/2026:14:33:20 +0000] "POST /users/verify-otp HTTP/1.1" 200 342 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:39:02.608Z info: Login attempt: bcloudtechnologiesng@gmail.com
+2026-06-02T14:39:05.872Z info: OTP Successfully sent to: bcloudtechnologiesng@gmail.com
+2026-06-02T14:39:05.887Z info: POST /users/login 200 3287ms
+2026-06-02T14:39:05.906Z info: ::1 - - [02/Jun/2026:14:39:05 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:39:26.895Z info: POST /users/verify-otp 500 44ms
+2026-06-02T14:39:26.921Z info: ::1 - - [02/Jun/2026:14:39:26 +0000] "POST /users/verify-otp HTTP/1.1" 500 72 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:40:50.247Z info: POST /users/verify-otp 200 643ms
+2026-06-02T14:40:50.252Z info: ::1 - - [02/Jun/2026:14:40:50 +0000] "POST /users/verify-otp HTTP/1.1" 200 342 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:41:35.005Z info: GET /blogs/fetch 304 331ms
+2026-06-02T14:41:35.028Z info: ::1 - - [02/Jun/2026:14:41:35 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:42:40.737Z info: GET /blogs/details/6a0f233237379fe63dda3bba 304 185ms
+2026-06-02T14:42:40.741Z info: ::1 - - [02/Jun/2026:14:42:40 +0000] "GET /blogs/details/6a0f233237379fe63dda3bba HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:43:31.132Z info: GET /blogs/fetch 304 121ms
+2026-06-02T14:43:31.144Z info: ::1 - - [02/Jun/2026:14:43:31 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:43:35.580Z info: DELETE /blogs/delete/6a0f233237379fe63dda3bba 404 5ms
+2026-06-02T14:43:35.611Z info: ::1 - - [02/Jun/2026:14:43:35 +0000] "DELETE /blogs/delete/6a0f233237379fe63dda3bba HTTP/1.1" 404 48 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:46:52.101Z info: POST /blogs/create 404 3ms
+2026-06-02T14:46:52.103Z info: ::1 - - [02/Jun/2026:14:46:52 +0000] "POST /blogs/create HTTP/1.1" 404 48 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:47:23.057Z info: POST /blogs/create 404 2ms
+2026-06-02T14:47:23.058Z info: ::1 - - [02/Jun/2026:14:47:23 +0000] "POST /blogs/create HTTP/1.1" 404 48 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:49:23.889Z info: Login attempt: bcloudtechnologiesng@gmail.com
+2026-06-02T14:49:26.944Z info: OTP Successfully sent to: bcloudtechnologiesng@gmail.com
+2026-06-02T14:49:26.945Z info: POST /users/login 200 3057ms
+2026-06-02T14:49:26.949Z info: ::1 - - [02/Jun/2026:14:49:26 +0000] "POST /users/login HTTP/1.1" 200 69 "-" "PostmanRuntime/7.54.0"
+2026-06-02T14:50:00.927Z info: POST /users/verify-otp 200 384ms
+2026-06-02T14:50:00.928Z info: ::1 - - [02/Jun/2026:14:50:00 +0000] "POST /users/verify-otp HTTP/1.1" 200 342 "-" "PostmanRuntime/7.54.0"
+2026-06-02T14:50:55.495Z info: GET /blogs/fetch 304 194ms
+2026-06-02T14:50:55.500Z info: ::1 - - [02/Jun/2026:14:50:55 +0000] "GET /blogs/fetch HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T14:50:56.882Z info: GET /blogs/details/6a0f233237379fe63dda3bba 304 126ms
+2026-06-02T14:50:56.900Z info: ::1 - - [02/Jun/2026:14:50:56 +0000] "GET /blogs/details/6a0f233237379fe63dda3bba HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T14:51:34.442Z info: Login attempt: bcloudtechnologiesng@gmail.com
+2026-06-02T14:51:34.873Z warn: Wrong password attempt: bcloudtechnologiesng@gmail.com
+2026-06-02T14:51:34.874Z info: POST /users/login 401 434ms
+2026-06-02T14:51:34.875Z info: ::1 - - [02/Jun/2026:14:51:34 +0000] "POST /users/login HTTP/1.1" 401 66 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:51:47.940Z info: Login attempt: bcloudtechnologiesng@gmail.com
+2026-06-02T14:51:51.956Z info: OTP Successfully sent to: bcloudtechnologiesng@gmail.com
+2026-06-02T14:51:51.959Z info: POST /users/login 200 4020ms
+2026-06-02T14:51:51.963Z info: ::1 - - [02/Jun/2026:14:51:51 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:52:13.355Z info: POST /users/verify-otp 200 361ms
+2026-06-02T14:52:13.356Z info: ::1 - - [02/Jun/2026:14:52:13 +0000] "POST /users/verify-otp HTTP/1.1" 200 342 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:52:42.119Z info: POST /users/verify-otp 400 213ms
+2026-06-02T14:52:42.141Z info: ::1 - - [02/Jun/2026:14:52:42 +0000] "POST /users/verify-otp HTTP/1.1" 400 58 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:53:22.757Z info: Login attempt: bcloudtechnologiesng@gmail.com
+2026-06-02T14:53:25.648Z info: OTP Successfully sent to: bcloudtechnologiesng@gmail.com
+2026-06-02T14:53:25.655Z info: POST /users/login 200 2898ms
+2026-06-02T14:53:25.660Z info: ::1 - - [02/Jun/2026:14:53:25 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:53:43.465Z info: POST /users/verify-otp 200 453ms
+2026-06-02T14:53:43.467Z info: ::1 - - [02/Jun/2026:14:53:43 +0000] "POST /users/verify-otp HTTP/1.1" 200 342 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:54:16.197Z info: POST /users/verify-otp 400 122ms
+2026-06-02T14:54:16.203Z info: ::1 - - [02/Jun/2026:14:54:16 +0000] "POST /users/verify-otp HTTP/1.1" 400 58 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:54:37.334Z info: POST /users/verify-otp 400 127ms
+2026-06-02T14:54:37.345Z info: ::1 - - [02/Jun/2026:14:54:37 +0000] "POST /users/verify-otp HTTP/1.1" 400 58 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:54:41.623Z info: POST /users/verify-otp 400 117ms
+2026-06-02T14:54:41.642Z info: ::1 - - [02/Jun/2026:14:54:41 +0000] "POST /users/verify-otp HTTP/1.1" 400 58 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:55:50.465Z info: POST /users/verify-otp 400 204ms
+2026-06-02T14:55:50.513Z info: ::1 - - [02/Jun/2026:14:55:50 +0000] "POST /users/verify-otp HTTP/1.1" 400 58 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T14:57:09.941Z info: POST /users/verify-otp 400 135ms
+2026-06-02T14:57:10.003Z info: ::1 - - [02/Jun/2026:14:57:10 +0000] "POST /users/verify-otp HTTP/1.1" 400 58 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T14:57:35.577Z info: Login attempt: bcloudtechnologiesng@gmail.com
+2026-06-02T14:57:38.772Z info: OTP Successfully sent to: bcloudtechnologiesng@gmail.com
+2026-06-02T14:57:38.777Z info: POST /users/login 200 3201ms
+2026-06-02T14:57:38.780Z info: ::1 - - [02/Jun/2026:14:57:38 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T14:58:02.731Z info: POST /users/verify-otp 200 623ms
+2026-06-02T14:58:02.734Z info: ::1 - - [02/Jun/2026:14:58:02 +0000] "POST /users/verify-otp HTTP/1.1" 200 342 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T14:58:30.015Z info: POST /blogs/create 500 350ms
+2026-06-02T14:58:30.019Z info: ::1 - - [02/Jun/2026:14:58:30 +0000] "POST /blogs/create HTTP/1.1" 500 1219 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:58:59.583Z info: POST /blogs/create 500 159ms
+2026-06-02T14:58:59.589Z info: ::1 - - [02/Jun/2026:14:58:59 +0000] "POST /blogs/create HTTP/1.1" 500 446 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:59:10.195Z info: POST /blogs/create 500 130ms
+2026-06-02T14:59:10.197Z info: ::1 - - [02/Jun/2026:14:59:10 +0000] "POST /blogs/create HTTP/1.1" 500 410 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:59:15.948Z info: POST /blogs/create 500 184ms
+2026-06-02T14:59:15.950Z info: ::1 - - [02/Jun/2026:14:59:15 +0000] "POST /blogs/create HTTP/1.1" 500 410 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T14:59:22.356Z info: POST /blogs/create 500 145ms
+2026-06-02T14:59:22.364Z info: ::1 - - [02/Jun/2026:14:59:22 +0000] "POST /blogs/create HTTP/1.1" 500 410 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T15:03:46.987Z info: POST /blogs/create 500 138ms
+2026-06-02T15:03:46.997Z info: ::1 - - [02/Jun/2026:15:03:46 +0000] "POST /blogs/create HTTP/1.1" 500 348 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T15:21:23.665Z info: Login attempt: callistusanwara@gmail.com
+2026-06-02T15:21:30.060Z info: OTP Successfully sent to: callistusanwara@gmail.com
+2026-06-02T15:21:30.070Z info: POST /users/login 200 6426ms
+2026-06-02T15:21:30.079Z info: ::1 - - [02/Jun/2026:15:21:30 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T15:21:57.198Z info: POST /users/verify-otp 200 1267ms
+2026-06-02T15:21:57.201Z info: ::1 - - [02/Jun/2026:15:21:57 +0000] "POST /users/verify-otp HTTP/1.1" 200 336 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T15:37:50.511Z info: Login attempt: callistusanwara@gmail.com
+2026-06-02T15:37:55.111Z info: OTP Successfully sent to: callistusanwara@gmail.com
+2026-06-02T15:37:55.136Z info: POST /users/login 200 4631ms
+2026-06-02T15:37:55.171Z info: ::1 - - [02/Jun/2026:15:37:55 +0000] "POST /users/login HTTP/1.1" 200 69 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T15:38:19.903Z info: POST /users/verify-otp 200 468ms
+2026-06-02T15:38:19.904Z info: ::1 - - [02/Jun/2026:15:38:19 +0000] "POST /users/verify-otp HTTP/1.1" 200 336 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T15:38:52.892Z info: POST /blogs/create 500 3051ms
+2026-06-02T15:38:52.896Z info: ::1 - - [02/Jun/2026:15:38:52 +0000] "POST /blogs/create HTTP/1.1" 500 348 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T15:43:25.756Z info: POST /blogs/create 201 3005ms
+2026-06-02T15:43:25.760Z info: ::1 - - [02/Jun/2026:15:43:25 +0000] "POST /blogs/create HTTP/1.1" 201 524 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T15:43:25.950Z info: GET /blogs/fetch 200 155ms
+2026-06-02T15:43:25.953Z info: ::1 - - [02/Jun/2026:15:43:25 +0000] "GET /blogs/fetch HTTP/1.1" 200 1142 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T15:43:35.596Z info: DELETE /blogs/delete/6a1efa1d797f8de061154238 200 1429ms
+2026-06-02T15:43:35.598Z info: ::1 - - [02/Jun/2026:15:43:35 +0000] "DELETE /blogs/delete/6a1efa1d797f8de061154238 HTTP/1.1" 200 76 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"

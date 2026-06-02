@@ -3,9 +3,21 @@ import httpStatus from "http-status";
 
 export const createBlog = async (req, res) => {
   try {
-    const { title, content, category, tags, author } = req.body;
+    const { title, content, category, tags } = req.body;
 
+    const author = req.user?.id;
+
+    if (!author) {
+      return res.status(httpStatus.UNAUTHORIZED).json({
+        statusCode: httpStatus.UNAUTHORIZED,
+        success: false,
+        message: "Author session not found. Please log in again.",
+      });
+    }
+
+    // Check duplicate title
     const existingBlog = await Blog.findOne({ title });
+
     if (existingBlog) {
       return res.status(httpStatus.CONFLICT).json({
         statusCode: httpStatus.CONFLICT,
@@ -14,6 +26,7 @@ export const createBlog = async (req, res) => {
       });
     }
 
+    // Normalize tags
     const tagArray =
       typeof tags === "string"
         ? tags.split(",").map((tag) => tag.trim())
@@ -26,9 +39,9 @@ export const createBlog = async (req, res) => {
       content,
       category,
       tags: tagArray,
+      author,
       blogImage: req.file?.path || "",
       blogImagePublicId: req.file?.filename || "",
-      author,
     });
 
     return res.status(httpStatus.CREATED).json({
@@ -40,16 +53,13 @@ export const createBlog = async (req, res) => {
   } catch (error) {
     console.error("DEBUG CREATE BLOG ERROR:", error);
 
-    // Safely convert message to string — handles object messages from Cloudinary/Mongoose
-    const message =
-      typeof error?.message === "string"
-        ? error.message
-        : (JSON.stringify(error?.message) ?? "An error occurred");
-
     return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
       statusCode: httpStatus.INTERNAL_SERVER_ERROR,
       success: false,
-      message,
+      message:
+        typeof error?.message === "string"
+          ? error.message
+          : "An error occurred",
       error: {
         name: error?.name,
         code: error?.code,

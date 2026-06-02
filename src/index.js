@@ -2,6 +2,7 @@ import express from "express";
 import multer from "multer";
 import dotenv from "dotenv";
 import morgan from "morgan";
+import cors from "cors";
 import logger from "./utils/logger.js";
 import monitor from "./middlewares/monitor.js";
 import { connectDB } from "./db/connection.js";
@@ -9,14 +10,25 @@ import userRoutes from "./routes/users.js";
 import blogRoutes from "./routes/blogs.js";
 import analyticsRoutes from "./routes/analytics/blogs.js";
 import healthRoute from "./routes/health.js";
+
 dotenv.config();
 
 const app = express();
-dotenv.config();
-app.use(express.json());
 
+// ✅ Configure CORS middleware before your routes
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  }),
+);
+
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(monitor);
+
 app.use(
   morgan("combined", {
     stream: {
@@ -25,7 +37,7 @@ app.use(
   }),
 );
 
-//Define API routes
+// Define API routes
 app.use("/users", userRoutes);
 app.use("/blogs", blogRoutes);
 app.use("/analytics", analyticsRoutes);
@@ -36,11 +48,9 @@ app.get("/", function (req, res) {
 });
 
 // ✅ Global error-handling middleware — MUST be after all routes
-// Catches multer errors and any error passed via next(error)
 app.use((err, req, res, next) => {
   console.error("GLOBAL ERROR HANDLER:", err);
 
-  // Handle multer-specific errors (file size, unexpected field, etc.)
   if (err instanceof multer.MulterError) {
     return res.status(400).json({
       statusCode: 400,
@@ -52,7 +62,6 @@ app.use((err, req, res, next) => {
     });
   }
 
-  // Handle custom errors thrown from fileFilter (e.g., wrong file type)
   if (err) {
     return res.status(err.status || 500).json({
       statusCode: err.status || 500,
@@ -67,7 +76,7 @@ app.use((err, req, res, next) => {
   next();
 });
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5001; // Fallback to 5001 if env file isn't loaded yet
 app.listen(PORT, function () {
   console.log(`Server running at http://localhost:${PORT}`);
   connectDB();
