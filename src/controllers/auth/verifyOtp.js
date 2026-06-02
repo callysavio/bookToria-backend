@@ -7,8 +7,10 @@ export const verifyOtp = async (req, res) => {
   try {
     const { email, otp } = req.body;
 
-    // 1. Find OTP record
-    const otpRecord = await OTP.findOne({ email, otp });
+    const numericOtp = Number(otp);
+
+    // 1. Find OTP record using the converted number
+    const otpRecord = await OTP.findOne({ email, otp: numericOtp });
 
     if (!otpRecord) {
       return res.status(httpStatus.BAD_REQUEST).json({
@@ -39,7 +41,7 @@ export const verifyOtp = async (req, res) => {
       },
       process.env.JWT_SECRET,
       {
-        expiresIn: process.env.JWT_EXPIRES_IN,
+        expiresIn: process.env.JWT_EXPIRES_IN || "1d",
       },
     );
 

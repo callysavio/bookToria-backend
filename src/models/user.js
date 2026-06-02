@@ -1,6 +1,6 @@
+// models/user.js
 import mongoose from "mongoose";
 
-// Define the User schema
 const userSchema = new mongoose.Schema(
   {
     profilePicture: {
@@ -11,13 +11,9 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-
     username: {
-      type: String,
-      required: true,
-      unique: true,
-      minlength: 6,
-      maxlength: 20,
+      encryptedData: { type: String, required: true },
+      iv: { type: String, required: true },
     },
     email: {
       type: String,
@@ -37,7 +33,5 @@ const userSchema = new mongoose.Schema(
   { timestamps: true },
 );
 
-// Create the User model
 const User = mongoose.model("User", userSchema);
-
 export default User;
